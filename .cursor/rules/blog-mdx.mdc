@@ -1,0 +1,29 @@
+---
+description: Blog and MDX content handling guidelines
+globs: "content/**/*.mdx", "src/**/*.tsx"
+---
+
+# Blog & MDX Guidelines
+
+## Content Locations
+- English posts: [content/](mdc:content)
+- Chinese posts: [content/zh/](mdc:content/zh)
+- Images: [public/blogs/images/](mdc:public/blogs/images)
+
+## Rendering Pipeline
+- MDX processing and utilities: [src/lib/blog.ts](mdc:src/lib/blog.ts)
+- Markdown/MDX components: [src/components/react-markdown.tsx](mdc:src/components/react-markdown.tsx)
+- Blog utilities: `getPost()`, `getBlogPosts()`, `hasChineseVersion()` functions
+
+## Authoring Conventions
+- Use frontmatter for title, date, summary, and tags.
+- Keep slugs URL-safe; use hyphens.
+- Prefer relative image paths rooted at `/blogs/images`.
+- Mathematical notation is supported (KaTeX) as needed.
+
+## Performance & SEO
+- Provide `alt` text for all images.
+- Use headings hierarchy properly (one h1 per post from frontmatter).
+- Avoid embedding personal information in MDX.
+- Use `markdownToHTML()` for processing with KaTeX and syntax highlighting.
+
