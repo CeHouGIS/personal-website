@@ -358,7 +358,7 @@ export default async function Page(props: {
         <div className="grid w-full items-center justify-center gap-4 px-4 py-12 text-center md:px-6">
           <Contact
             emailUrl={socialData.email.url}
-            calendlyUrl={socialData.calendly.url}
+            calendlyUrl={socialData.calendly?.url}
             contactLabel={t("sections.contact")}
             getInTouch={t("sections.getInTouch")}
             contactDescription={t("sections.contactDescription")}

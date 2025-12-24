@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface ContactProps {
   emailUrl: string;
-  calendlyUrl: string;
+  calendlyUrl?: string;
   contactLabel?: string;
   getInTouch?: string;
   contactDescription?: string;
@@ -55,18 +55,20 @@ export default function Contact({
             <li className="hover:text-foreground transition-colors">
               • {exploreCollaboration}
             </li>
-            <li className="hover:text-foreground transition-colors">
-              • {coffeeChat} (
-              <Link
-                href={calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground underline transition-colors hover:no-underline"
-              >
-                {schedule}
-              </Link>
-              )
-            </li>
+            {calendlyUrl && (
+              <li className="hover:text-foreground transition-colors">
+                • {coffeeChat} (
+                <Link
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground underline transition-colors hover:no-underline"
+                >
+                  {schedule}
+                </Link>
+                )
+              </li>
+            )}
           </ul>
         </div>
       </div>

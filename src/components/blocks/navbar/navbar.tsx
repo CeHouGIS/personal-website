@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import NextLink from "next/link";
 import { useEffect, useState } from "react";
 
 import { LanguageToggle } from "@/components/blocks/navbar/language-toggle";
@@ -71,28 +70,41 @@ export default function Navbar({
         {navbarItems.map((item) => {
           // Use next-intl Link which automatically handles locale prefixes
           // With localePrefix: 'as-needed', en routes don't have /en prefix
-          // Use Next.js Link for links containing a dot (e.g., .pdf, .png), otherwise use i18n Link
+          // For static files (e.g., .pdf, .png), use regular <a> tag to avoid routing issues
+          // Otherwise use i18n Link for internal routes
           const href = item.href;
           const label = item.label;
           const IconComponent = getIconComponent(item.icon);
-          const containsDot = href.includes(".");
-          const LinkComponent = containsDot ? NextLink : I18nLink;
+          const isStaticFile = href.includes(".") && (href.endsWith(".pdf") || href.endsWith(".png") || href.endsWith(".jpg") || href.endsWith(".jpeg"));
+          const LinkComponent = isStaticFile ? "a" : I18nLink;
 
           return (
             <DockIcon key={item.href}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <LinkComponent
-                    href={href}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12",
-                    )}
-                    aria-label={label}
-                    {...(item.href.endsWith(".pdf") ? { prefetch: false } : {})}
-                  >
-                    <IconComponent className="size-4" />
-                  </LinkComponent>
+                  {isStaticFile ? (
+                    <a
+                      href={href}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12",
+                      )}
+                      aria-label={label}
+                    >
+                      <IconComponent className="size-4" />
+                    </a>
+                  ) : (
+                    <LinkComponent
+                      href={href}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12",
+                      )}
+                      aria-label={label}
+                    >
+                      <IconComponent className="size-4" />
+                    </LinkComponent>
+                  )}
                 </TooltipTrigger>
                 <TooltipContent
                   side={isDesktop ? "bottom" : "top"}
