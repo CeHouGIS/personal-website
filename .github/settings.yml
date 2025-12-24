@@ -3,7 +3,7 @@
 
 repository:
   name: nextjs-portfolio-blog-research
-  description: 🚀 Portfolio with Blog Template for Next.js 15 with App Router, Tailwind CSS 4, TypeScript and SEO 📚 Optimized for Researcher, Developer, Designer and More ✨
+  description: 🚀 Portfolio with Blog Template for Next.js 16 with App Router, Tailwind CSS 4, TypeScript and SEO 📚 Optimized for Researcher, Developer, Designer and More ✨
   homepage: https://www.zangwei.dev/open-source/nextjs-portfolio-blog-research/docs
   private: false
   has_issues: true
