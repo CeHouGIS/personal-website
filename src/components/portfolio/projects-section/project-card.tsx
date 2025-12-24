@@ -20,7 +20,7 @@ interface Props {
   href?: string;
   description: string;
   dates: string;
-  tags: readonly string[];
+  tags?: readonly string[];
   link?: string;
   image?: string;
   video?: string;
@@ -119,7 +119,7 @@ export function ProjectCard({
             {/* blurred background to fill empty space */}
             <Image
               src={image}
-              alt=""
+              alt={title}
               aria-hidden
               fill
               sizes="(max-width: 768px) 100vw, 500px"
@@ -146,16 +146,18 @@ export function ProjectCard({
       </Link>
       <CardHeader className="px-2">
         <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
+          <CardTitle className="mt-1 text-base [&_img]:my-0 [&_img]:inline-block [&_img]:h-[1em] [&_img]:w-auto [&_img]:align-baseline">
+            <CustomReactMarkdown>{title}</CustomReactMarkdown>
+          </CardTitle>
           <time className="font-sans text-xs">{dates}</time>
           <div className="hidden font-sans text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
-          <div className="prose text-muted-foreground dark:prose-invert max-w-full font-sans text-xs text-pretty">
+          <div className="prose text-muted-foreground dark:prose-invert max-w-full font-sans text-xs text-pretty mt-1 mb-1 [&_p]:mt-1 [&_p]:mb-1 [&_img]:my-0 [&_img]:inline-block [&_img]:h-[1em] [&_img]:w-auto [&_img]:align-baseline">
             <CustomReactMarkdown>{description}</CustomReactMarkdown>
           </div>
           {authors && authors.trim() !== "" && (
-            <div className="prose text-muted-foreground dark:prose-invert max-w-full font-sans text-xs text-pretty">
+            <div className="prose text-muted-foreground dark:prose-invert max-w-full font-sans text-xs text-pretty mt-1 mb-1 [&_p]:mt-1 [&_p]:mb-1">
               <CustomReactMarkdown>{authors}</CustomReactMarkdown>
             </div>
           )}

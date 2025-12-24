@@ -12,6 +12,7 @@ interface AwardItem {
 
 interface AwardsSectionProps {
   awards: readonly AwardItem[];
+  showAllText?: string;
 }
 
 const DEFAULT_DISPLAY_COUNT = 5;
@@ -55,7 +56,10 @@ function AwardItem({ award }: { award: AwardItem }) {
   );
 }
 
-export default function AwardsSection({ awards }: AwardsSectionProps) {
+export default function AwardsSection({
+  awards,
+  showAllText = "Show All",
+}: AwardsSectionProps) {
   const [showAll, setShowAll] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -72,19 +76,13 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
   // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
     return (
-      <section id="awards">
-        <div className="flex min-h-0 flex-col gap-y-1">
-          <h2 className="text-xl font-bold">Awards & Honors</h2>
-          <div className="space-y-0">
-            {awards.slice(0, DEFAULT_DISPLAY_COUNT).map((award) => (
-              <AwardItem
-                key={`${award.year}-${award.title}`}
-                award={award}
-              />
-            ))}
-          </div>
+      <div className="flex min-h-0 flex-col gap-y-1">
+        <div className="space-y-0">
+          {awards.slice(0, DEFAULT_DISPLAY_COUNT).map((award) => (
+            <AwardItem key={`${award.year}-${award.title}`} award={award} />
+          ))}
         </div>
-      </section>
+      </div>
     );
   }
 
@@ -92,10 +90,7 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
     <div className="flex min-h-0 flex-col gap-y-3">
       <div className="space-y-0.5">
         {displayedAwards.map((award) => (
-          <AwardItem
-            key={`${award.year}-${award.title}`}
-            award={award}
-          />
+          <AwardItem key={`${award.year}-${award.title}`} award={award} />
         ))}
       </div>
       {hasMoreAwards && !showAll && (
@@ -107,7 +102,7 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
             className="flex items-center gap-2"
           >
             <ChevronDown className="h-4 w-4" />
-            Show All
+            {showAllText}
           </Button>
         </div>
       )}

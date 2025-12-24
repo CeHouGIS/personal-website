@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -25,8 +25,7 @@ export function TableOfContents({
   onItemClick,
 }: TableOfContentsProps) {
   const [toc, setToc] = useState<TOCItem[]>([]);
-  const pathname = usePathname();
-  const isChinese = pathname.startsWith("/zh");
+  const t = useTranslations();
 
   // Extract headings from HTML content
   useEffect(() => {
@@ -63,13 +62,13 @@ export function TableOfContents({
       {!hideTitle && (
         <div className="mb-4">
           <h3 className="text-foreground/90 text-sm font-medium tracking-wide">
-            {isChinese ? "目录" : "Table of Contents"}
+            {t("blog.toc.title")}
           </h3>
         </div>
       )}
       {toc.length === 0 ? (
         <div className="text-muted-foreground/70 py-8 text-center text-sm">
-          <p>{isChinese ? "暂无目录" : "No table of contents available"}</p>
+          <p>{t("blog.toc.empty")}</p>
         </div>
       ) : (
         <nav className="space-y-0.5">

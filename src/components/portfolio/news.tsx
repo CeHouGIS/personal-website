@@ -16,6 +16,8 @@ interface NewsItem {
 interface NewsSectionProps {
   news: readonly NewsItem[];
   delay?: number;
+  title?: string;
+  showAllText?: string;
 }
 
 const DEFAULT_DISPLAY_COUNT = 5;
@@ -68,7 +70,12 @@ function NewsItem({ item, delay }: { item: NewsItem; delay: number }) {
   );
 }
 
-export default function NewsSection({ news, delay = 0 }: NewsSectionProps) {
+export default function NewsSection({ 
+  news, 
+  delay = 0, 
+  title = "Latest News",
+  showAllText = "Show All"
+}: NewsSectionProps) {
   const [showAll, setShowAll] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -85,7 +92,7 @@ export default function NewsSection({ news, delay = 0 }: NewsSectionProps) {
     return (
       <div className="flex min-h-0 flex-col gap-y-1">
         <BlurFade delay={delay}>
-          <h2 className="text-xl font-bold">Latest News</h2>
+          <h2 className="text-xl font-bold">{title}</h2>
         </BlurFade>
         <div className="space-y-0">
           {news.slice(0, DEFAULT_DISPLAY_COUNT).map((item, id) => (
@@ -103,7 +110,7 @@ export default function NewsSection({ news, delay = 0 }: NewsSectionProps) {
   return (
     <div className="flex min-h-0 flex-col gap-y-3">
       <BlurFade delay={delay}>
-        <h2 className="text-xl font-bold">Latest News</h2>
+        <h2 className="text-xl font-bold">{title}</h2>
       </BlurFade>
       <div className="space-y-0.5">
         {displayedNews.map((item, id) => (
@@ -124,7 +131,7 @@ export default function NewsSection({ news, delay = 0 }: NewsSectionProps) {
               className="flex items-center gap-2"
             >
               <ChevronDown className="h-4 w-4" />
-              Show All
+              {showAllText}
             </Button>
           </div>
         </BlurFade>

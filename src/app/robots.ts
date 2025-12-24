@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-import { DATA } from "@/data";
+import { siteConfig } from "@/data/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: `${DATA.url}/sitemap.xml`,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

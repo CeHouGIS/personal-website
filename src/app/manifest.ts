@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
-import { DATA } from "@/data";
+import enMessages from "@/i18n/messages/en/personal.json";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${DATA.name} - Portfolio`,
-    short_name: DATA.name,
-    description: DATA.description,
+    name: enMessages.name.full,
+    short_name: enMessages.name.full,
+    description: enMessages.headline.replace(/\n/g, ", "),
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

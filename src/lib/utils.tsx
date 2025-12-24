@@ -1,5 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import React from "react";
+import { Icons } from "@/components/icons";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -48,4 +50,17 @@ export function jsonldScript(jsonLd: string) {
       dangerouslySetInnerHTML={{ __html: jsonLd }}
     />
   );
+}
+
+export function getIconComponent(iconName: string) {
+  const iconMap: Record<string, (props: React.HTMLAttributes<SVGElement>) => React.ReactElement> = {
+    globe: Icons.globe,
+    github: Icons.github,
+    paper: Icons.paper,
+    bookopen: Icons.bookopen,
+    newspaper: Icons.newspaper,
+  };
+  
+  const IconComponent = iconMap[iconName] || Icons.globe;
+  return <IconComponent className="size-3" />;
 }

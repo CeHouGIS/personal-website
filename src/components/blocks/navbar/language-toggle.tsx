@@ -1,33 +1,57 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
+import { usePathname, useRouter } from "@/i18n/routing";
+import { cn } from "@/lib/utils";
 
-export function LanguageToggle() {
+interface LanguageToggleProps {
+  disabled?: boolean;
+}
+
+export function LanguageToggle({ disabled = false }: LanguageToggleProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const isChinese = pathname.startsWith("/zh");
+  const locale = useLocale();
+
+  // Check if current locale is Chinese
+  const isChinese = locale === "zh";
 
   const handleLanguageToggle = (e: React.MouseEvent) => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
     e.preventDefault();
-    const targetUrl = isChinese 
-      ? pathname.replace("/zh", "") || "/"
-      : "/zh" + pathname;
-    
-    router.push(targetUrl);
+
+    // Save current scroll position before switching language
+    if (typeof window !== "undefined") {
+      const scrollPosition = window.scrollY || window.pageYOffset;
+      const scrollKey = `scroll-${pathname}`;
+      sessionStorage.setItem(scrollKey, scrollPosition.toString());
+    }
+
+    // Switch to the other locale while preserving the path
+    const targetLocale = isChinese ? "en" : "zh";
+    router.replace(pathname, { locale: targetLocale });
   };
+
+  // Determine display text based on current locale
+  // When disabled, always show "EN"
+  const displayText = disabled ? "EN" : isChinese ? "中" : "EN";
 
   return (
     <Button
-      variant="ghost" 
+      variant="ghost"
       type="button"
       size="icon"
-      className="px-2"
+      className={cn("px-2", disabled && "cursor-not-allowed opacity-50")}
       onClick={handleLanguageToggle}
       aria-label="Toggle language"
+      disabled={disabled}
     >
-      <span className="text-sm font-medium">{isChinese ? "中" : "EN"}</span>
+      <span className="text-sm font-medium">{displayText}</span>
     </Button>
   );
 }

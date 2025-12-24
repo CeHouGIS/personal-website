@@ -1,16 +1,15 @@
-# Portfolio with Blog Template for Next.js 15 with App Router, Tailwind CSS 4, TypeScript
+# Portfolio with Blog Template for Next.js 16 with App Router, Tailwind CSS 4, TypeScript
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzhengzangw%2Fnextjs-portfolio-blog-research)
 
-[![Demo Screenshot](./asset/sceenshot.png)](https://www.zangwei.dev/)
+[![Demo Screenshot](.github/asset/sceenshot.png)](https://www.zangwei.dev/)
 
-[Documentation →](https://docs-nextjs-portfolio-blog-research.zangwei.dev/)
+[Documentation →](https://www.zangwei.dev/open-source/nextjs-portfolio-blog-research/docs)
 
 ## Demo
 
 - This repo on Vercel: [https://nextjs-portfolio-blog-research.vercel.app/](https://nextjs-portfolio-blog-research.vercel.app/)
 - My portfolio: [zangwei.dev](https://www.zangwei.dev/)
-- [mengjunyi.com](https://mengjunyi.com/)
 
 ## Features
 
@@ -28,7 +27,7 @@ A modern portfolio website with an integrated blog, supporting seamless AI-assis
 
 **Built with cutting-edge tech:**
 
-- ⚡ **Next.js 15:** Powered by the new App Router for flexibility & speed.
+- ⚡ **Next.js 16:** Powered by the new App Router for flexibility & speed.
 - 🔥 **TypeScript:** Full type-checking and safety.
 - 💎 **Tailwind CSS 4:** Elegant, modern styling out of the box.
 - ✅ **Strict Mode:** Takes advantage of TypeScript strictness and React 19 best practices.
@@ -43,31 +42,44 @@ A modern portfolio website with an integrated blog, supporting seamless AI-assis
 - 💖 **Prettier:** Effortless code formatting.
 - 📏 **ESLint:** Linting for code quality and consistency.
 - 🏗️ **Inspired by:** [dillionverma/portfolio](https://github.com/dillionverma/portfolio)
+- 🔒 **Security:** Follows best practices for security and privacy.
 
-## Getting started
+## Getting Started 🚀
 
-Run the following command on your local environment:
+Spin up your own portfolio site in **minutes**!
+
+### 1. Clone & install
 
 ```bash
 git clone https://github.com/zhengzangw/nextjs-portfolio-blog-research
 cd nextjs-portfolio-blog-research
-pnpm install # or npm install or yarn install
+pnpm install    # or: npm install | yarn install
 ```
 
-Then, you can start the development server:
+### 2. Launch the dev server
 
 ```bash
-pnpm dev # or npm run dev or yarn dev
+pnpm dev        # or: npm run dev | yarn dev
 ```
 
-Open `http://localhost:3000` in your favorite browser to view your portfolio.
+Visit [`http://localhost:3000`](http://localhost:3000) to view your site.
 
-To customize your portfolio, simply edit the configuration in [/src/data.tsx](/src/data.tsx).
+### 3. Customize your portfolio
 
-To create blog posts, add markdown (MDX) files to the [content/](./content) directory.
+- Edit your main info in [`/src/data/site.tsx`](/src/data/site.tsx)
+- Edit all interface text & profile sections in [`/src/i18n/messages`](/src/i18n/messages)
+- Add blog posts in [`content/blog`](./content/blog) as Markdown or MDX files
 
-The default portfolio information and blog articles are provided as examples to help you get started quickly.
+The repo includes example portfolio data and blog posts so you'll see real content right away.
 
-The simplest way to deploy your portfolio is via [Vercel](https://vercel.com/): just click [deploy](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzhengzangw%2Fnextjs-portfolio-blog-research). The free Vercel plan is suitable for almost all personal use cases.
+---
 
-More details can be found in the [Documentation](https://nextjs-boilerplate.com/).
+### 🚀 Deploy to Vercel Instantly
+
+Click  
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzhengzangw%2Fnextjs-portfolio-blog-research)  
+Your portfolio will be live in minutes! No config needed. Vercel’s generous free plan is perfect for personal and demo sites.
+
+---
+
+Find more details and advanced guides in the [Documentation](https://www.zangwei.dev/open-source/nextjs-portfolio-blog-research/docs).

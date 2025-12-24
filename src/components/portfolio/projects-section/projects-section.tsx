@@ -4,7 +4,6 @@ import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { ProjectCard } from "@/components/portfolio/projects-section/project-card";
-import { BlurFade } from "@/components/ui/blur-fade";
 import { Button } from "@/components/ui/button";
 
 interface ProjectLink {
@@ -19,7 +18,7 @@ interface ProjectItem {
   readonly dates: string;
   readonly active: boolean;
   readonly description: string;
-  readonly technologies: readonly string[];
+  readonly technologies?: readonly string[];
   readonly authors?: string;
   readonly links?: readonly ProjectLink[];
   readonly image?: string;
@@ -29,54 +28,49 @@ interface ProjectItem {
 interface ProjectsSectionProps {
   projects: readonly ProjectItem[];
   delay?: number;
+  mobileDisplayCount?: number;
+  desktopDisplayCount?: number;
+  showAllText?: string;
 }
-
-const DEFAULT_DISPLAY_COUNT = 6;
-const BLUR_FADE_DELAY = 0.05;
 
 export default function ProjectsSection({
   projects,
   delay = 0,
+  mobileDisplayCount = 6,
+  desktopDisplayCount = 6,
+  showAllText = "Show All",
 }: ProjectsSectionProps) {
   const [showAll, setShowAll] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [displayCount, setDisplayCount] = useState(desktopDisplayCount);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
 
-  const displayed = showAll
-    ? projects
-    : projects.slice(0, DEFAULT_DISPLAY_COUNT);
-  const hasMore = projects.length > DEFAULT_DISPLAY_COUNT;
+    const updateDisplayCount = () => {
+      // 使用 Tailwind 的 lg 断点 (1024px) 作为桌面和移动端的分界
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+      setDisplayCount(isDesktop ? desktopDisplayCount : mobileDisplayCount);
+    };
+
+    updateDisplayCount();
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    mediaQuery.addEventListener("change", updateDisplayCount);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateDisplayCount);
+    };
+  }, [mobileDisplayCount, desktopDisplayCount]);
+
+  const displayed = showAll ? projects : projects.slice(0, displayCount);
+  const hasMore = projects.length > displayCount;
 
   if (!mounted) {
     return (
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.slice(0, DEFAULT_DISPLAY_COUNT).map((project, id) => (
-          <BlurFade key={project.title} delay={delay + id * BLUR_FADE_DELAY}>
-            <ProjectCard
-              href={project.href}
-              title={project.title}
-              description={project.description}
-              dates={project.dates}
-              tags={project.technologies}
-              image={project.image}
-              video={project.video}
-              links={project.links}
-              authors={project.authors}
-            />
-          </BlurFade>
-        ))}
-      </div>
-    );
-  }
-
-  return (
-    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {displayed.map((project, id) => (
-        <BlurFade key={project.title} delay={id * BLUR_FADE_DELAY}>
+        {projects.slice(0, displayCount).map((project) => (
           <ProjectCard
+            key={project.title}
             href={project.href}
             title={project.title}
             description={project.description}
@@ -87,22 +81,39 @@ export default function ProjectsSection({
             links={project.links}
             authors={project.authors}
           />
-        </BlurFade>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {displayed.map((project) => (
+        <ProjectCard
+          key={project.title}
+          href={project.href}
+          title={project.title}
+          description={project.description}
+          dates={project.dates}
+          tags={project.technologies}
+          image={project.image}
+          video={project.video}
+          links={project.links}
+          authors={project.authors}
+        />
       ))}
       {hasMore && !showAll && (
-        <BlurFade className="col-span-full" delay={delay + BLUR_FADE_DELAY * 6}>
-          <div className="flex justify-center pt-1">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setShowAll(true)}
-              className="flex items-center gap-2"
-            >
-              <ChevronDown className="h-4 w-4" />
-              Show All
-            </Button>
-          </div>
-        </BlurFade>
+        <div className="col-span-full flex justify-center pt-1">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowAll(true)}
+            className="flex items-center gap-2"
+          >
+            <ChevronDown className="h-4 w-4" />
+            {showAllText}
+          </Button>
+        </div>
       )}
     </div>
   );

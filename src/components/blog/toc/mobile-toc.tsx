@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -15,8 +15,7 @@ interface MobileTOCProps {
 export function MobileTOC({ content }: MobileTOCProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [hasHeadings, setHasHeadings] = useState(false);
-  const pathname = usePathname();
-  const isChinese = pathname.startsWith("/zh");
+  const t = useTranslations();
 
   // Check if content has headings
   React.useEffect(() => {
@@ -39,7 +38,7 @@ export function MobileTOC({ content }: MobileTOCProps) {
           onClick={() => setIsOpen(!isOpen)}
           size="sm"
           className="bg-background/90 border-border/50 hover:bg-background/95 text-foreground h-12 w-12 rounded-full border shadow-xl shadow-black/10 backdrop-blur-xl dark:shadow-black/30"
-          aria-label={isChinese ? "切换目录" : "Toggle table of contents"}
+          aria-label={t("blog.toc.toggle")}
         >
           <svg
             className="h-5 w-5"
@@ -77,14 +76,14 @@ export function MobileTOC({ content }: MobileTOCProps) {
             {/* Header */}
             <div className="border-border/50 flex items-center justify-between border-b p-4">
               <h2 className="text-foreground/90 text-lg font-medium tracking-wide">
-                {isChinese ? "目录" : "Table of Contents"}
+                {t("blog.toc.title")}
               </h2>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(false)}
                 className="text-foreground h-8 w-8 p-0"
-                aria-label={isChinese ? "关闭目录" : "Close table of contents"}
+                aria-label={t("blog.toc.close")}
               >
                 <svg
                   className="h-4 w-4"

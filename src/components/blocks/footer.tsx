@@ -1,101 +1,95 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import NextLink from "next/link";
+import type React from "react";
 
 import { Icons } from "@/components/icons";
 import { Separator } from "@/components/ui/separator";
-import { DATA, getEmail } from "@/data";
+import { siteConfig } from "@/data/site";
+import { Link as I18nLink } from "@/i18n/routing";
+import { transformSocialData } from "@/lib/social-icons";
 
-// Use DATA.contact.social directly instead of redefining socialLinks
+interface FooterLinkProps {
+  href: string;
+  children?: React.ReactNode;
+  className?: string;
+  ariaLabel?: string;
+  icon?: React.ComponentType<{ className?: string }>;
+}
+
+// Reusable function to render footer links with appropriate props
+function FooterLink({
+  href,
+  children,
+  className = "text-muted-foreground hover:text-foreground block text-sm transition-colors",
+  ariaLabel,
+  icon: Icon,
+}: FooterLinkProps) {
+  const isInternalLink = href.startsWith("/");
+  const isFileLink =
+    href.endsWith(".pdf") ||
+    href.endsWith(".png") ||
+    href.endsWith(".jpg") ||
+    href.endsWith(".jpeg");
+  const isExternalLink = !isInternalLink;
+  const containsDot = href.includes(".");
+  const LinkComponent = containsDot ? NextLink : I18nLink;
+
+  // Determine target and rel attributes
+  const target = isFileLink || isExternalLink ? "_blank" : undefined;
+  const rel = isFileLink || isExternalLink ? "noopener noreferrer" : undefined;
+  const prefetch = isInternalLink && !isFileLink ? false : undefined;
+
+  return (
+    <LinkComponent
+      href={href}
+      target={target}
+      rel={rel}
+      className={className}
+      prefetch={prefetch}
+      aria-label={ariaLabel}
+    >
+      {Icon ? <Icon className="h-5 w-5" /> : children || null}
+    </LinkComponent>
+  );
+}
 
 export default function Footer() {
-  const pathname = usePathname();
-  const isChinese = pathname.startsWith("/zh");
   const currentYear = new Date().getFullYear();
+  const t = useTranslations();
 
-  // Translations directly in the component
-  const translations = {
-    en: {
-      navigation: {
-        about: "About",
-        projects: "Projects",
-        education: "Education",
-        experience: "Experience",
-        skills: "Skills",
-        awards: "Awards",
-      },
-      sections: {
-        quickNavigation: "Quick Navigation",
-        connect: "Connect",
-        resources: "Resources",
-        discover: "Discover",
-        contact: "Contact",
-      },
-      resources: {
-        blog: "Blog",
-        downloadCV: "Download CV",
-      },
-      contact: {
-        support: "Support",
-      },
-      legal: {
-        allRightsReserved: "All rights reserved",
-        privacyPolicy: "Privacy Policy",
-        termsDisclaimer: "Terms & Disclaimer",
-      },
-      bottom: {
-        lastUpdated: "Last updated",
-        madeWith: "Made with",
-        modifiedFrom: "Build with",
-      },
-    },
-    zh: {
-      navigation: {
-        about: "关于",
-        projects: "项目",
-        education: "教育",
-        experience: "经历",
-        skills: "技能",
-        awards: "奖项",
-      },
-      sections: {
-        quickNavigation: "快速导航",
-        connect: "联系",
-        resources: "资源",
-        discover: "发现",
-        contact: "联系",
-      },
-      resources: {
-        blog: "博客",
-        downloadCV: "下载简历",
-      },
-      contact: {
-        support: "支持",
-      },
-      legal: {
-        allRightsReserved: "版权所有",
-        privacyPolicy: "隐私政策",
-        termsDisclaimer: "条款与免责声明",
-      },
-      bottom: {
-        lastUpdated: "最后更新",
-        madeWith: "追随",
-        modifiedFrom: "修改自",
-      },
-    },
-  };
-
-  const t = isChinese ? translations.zh : translations.en;
+  // Get data from i18n
+  const socialData = transformSocialData(
+    t.raw("social") as Record<
+      string,
+      {
+        name: string;
+        url: string;
+        icon: string;
+        navbar?: boolean;
+        content?: boolean;
+        footer?: boolean;
+      }
+    >,
+  );
+  const footerResources = t.raw("footer.resources") as Array<{
+    name: string;
+    url: string;
+  }>;
+  const footerDiscover = t.raw("footer.discover") as Array<{
+    name: string;
+    url: string;
+  }>;
 
   // Create navigation sections with translations
   const translatedNavigationSections = [
-    { name: t.navigation.about, href: "#about" },
-    { name: t.navigation.projects, href: "#projects" },
-    { name: t.navigation.education, href: "#education" },
-    { name: t.navigation.experience, href: "#work" },
-    { name: t.navigation.skills, href: "#skills" },
-    { name: t.navigation.awards, href: "#awards" },
+    { name: t("footer.navigation.about"), href: "/#about" },
+    { name: t("footer.navigation.projects"), href: "/#projects" },
+    { name: t("footer.navigation.education"), href: "/#education" },
+    { name: t("footer.navigation.experience"), href: "/#work" },
+    { name: t("footer.navigation.skills"), href: "/#skills" },
+    { name: t("footer.navigation.awards"), href: "/#awards" },
   ];
 
   return (
@@ -105,17 +99,13 @@ export default function Footer() {
           {/* Quick Navigation */}
           <div className="space-y-4">
             <h3 className="text-foreground text-sm font-semibold tracking-wider">
-              {t.sections.quickNavigation}
+              {t("footer.sections.quickNavigation")}
             </h3>
             <nav className="space-y-2">
               {translatedNavigationSections.map((section) => (
-                <Link
-                  key={section.name}
-                  href={section.href}
-                  className="text-muted-foreground hover:text-foreground block text-sm transition-colors"
-                >
+                <FooterLink key={section.name} href={section.href}>
                   {section.name}
-                </Link>
+                </FooterLink>
               ))}
             </nav>
           </div>
@@ -123,66 +113,47 @@ export default function Footer() {
           {/* Social Links */}
           <div className="space-y-4">
             <h3 className="text-foreground text-sm font-semibold tracking-wider">
-              {t.sections.connect}
+              {t("footer.sections.connect")}
             </h3>
             <div className="flex flex-wrap gap-3">
-              {Object.values(DATA.contact.social)
+              {Object.values(socialData)
                 .filter((social) => social.footer)
                 .map((social) => (
-                  <Link
+                  <FooterLink
                     key={social.name}
                     href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    ariaLabel={social.name}
+                    icon={social.icon}
                     className="text-muted-foreground hover:text-foreground transition-colors"
-                    aria-label={social.name}
-                  >
-                    <social.icon className="h-5 w-5" />
-                  </Link>
+                  />
                 ))}
             </div>
           </div>
 
-          {/* Blog & CV */}
+          {/* Resources */}
           <div className="space-y-4">
             <h3 className="text-foreground text-sm font-semibold tracking-wider">
-              {t.sections.resources}
+              {t("footer.sections.resources")}
             </h3>
             <nav className="space-y-2">
-              <Link
-                href={isChinese ? "/zh/blog" : "/blog"}
-                className="text-muted-foreground hover:text-foreground block text-sm transition-colors"
-              >
-                {t.resources.blog}
-              </Link>
-              <Link
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground block text-sm transition-colors"
-                prefetch={false}
-              >
-                {t.resources.downloadCV}
-              </Link>
+              {footerResources.map((resource) => (
+                <FooterLink key={resource.name} href={resource.url}>
+                  {resource.name}
+                </FooterLink>
+              ))}
             </nav>
           </div>
 
           {/* Discover */}
           <div className="space-y-4">
             <h3 className="text-foreground text-sm font-semibold tracking-wider">
-              {t.sections.discover}
+              {t("footer.sections.discover")}
             </h3>
             <nav className="space-y-2">
-              {DATA.discover.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground block text-sm transition-colors"
-                >
+              {footerDiscover.map((item) => (
+                <FooterLink key={item.name} href={item.url}>
                   {item.name}
-                </Link>
+                </FooterLink>
               ))}
             </nav>
           </div>
@@ -190,23 +161,21 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="space-y-4">
             <h3 className="text-foreground text-sm font-semibold tracking-wider">
-              {t.sections.contact}
+              {t("footer.sections.contact")}
             </h3>
             <div className="text-muted-foreground space-y-2 text-sm">
-              <Link
-                href={DATA.locationLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              <FooterLink
+                href={t("location.mapUrl")}
                 className="hover:text-foreground block transition-colors"
               >
-                {DATA.location}
-              </Link>
-              <Link
-                href={getEmail()}
+                {t("location.name")}
+              </FooterLink>
+              <FooterLink
+                href={socialData.email.url}
                 className="hover:text-foreground block transition-colors"
               >
-                {t.contact.support}
-              </Link>
+                {t("footer.contact.support")}
+              </FooterLink>
             </div>
           </div>
         </div>
@@ -219,49 +188,44 @@ export default function Footer() {
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div className="text-muted-foreground flex items-center gap-2 text-sm">
               <span>
-                © {currentYear} {isChinese ? DATA.chinese.name : DATA.name}
+                © {currentYear} {t("name.full")}
               </span>
               <span>•</span>
-              <span>{t.legal.allRightsReserved}</span>
+              <span>{t("footer.legal.allRightsReserved")}</span>
             </div>
 
             <div className="text-muted-foreground flex items-center gap-2 text-sm">
-              <Link
-                href={isChinese ? "/zh/privacy" : "/privacy"}
+              <FooterLink
+                href="/privacy-policy"
                 className="hover:text-foreground transition-colors"
               >
-                {t.legal.privacyPolicy}
-              </Link>
+                {t("footer.legal.privacyPolicy")}
+              </FooterLink>
               <span>•</span>
-              <Link
-                href={isChinese ? "/zh/terms" : "/terms"}
+              <FooterLink
+                href="/terms-of-service"
                 className="hover:text-foreground transition-colors"
               >
-                {t.legal.termsDisclaimer}
-              </Link>
+                {t("footer.legal.termsDisclaimer")}
+              </FooterLink>
             </div>
           </div>
 
           {/* Last Updated and Made with - Desktop: same line, Mobile: separate lines */}
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div className="text-muted-foreground text-sm">
-              {t.bottom.lastUpdated}: {DATA.lastUpdated}
+              {t("footer.bottom.lastUpdated")}: {siteConfig.lastUpdated}
             </div>
 
             <div className="text-muted-foreground flex items-center gap-2 text-sm">
-              <span>{t.bottom.madeWith}</span>
-              <Icons.heartbeat className="h-4 w-4 fill-red-500 text-red-500" />
-              <span>•</span>
-              <span>{t.bottom.modifiedFrom}</span>
-              <Link
+              <span>{t("footer.bottom.modifiedFrom")}</span>
+              <FooterLink
                 href="https://github.com/zhengzangw/nextjs-portfolio-blog-research"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="hover:text-foreground inline-flex items-center gap-1 transition-colors"
               >
                 <Icons.github className="h-4 w-4" />
                 <span>zhengzangw/nextjs-portfolio-blog-research</span>
-              </Link>
+              </FooterLink>
             </div>
           </div>
         </div>

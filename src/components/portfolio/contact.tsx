@@ -3,25 +3,44 @@ import Link from "next/link";
 interface ContactProps {
   emailUrl: string;
   calendlyUrl: string;
+  contactLabel?: string;
+  getInTouch?: string;
+  contactDescription?: string;
+  viaEmail?: string;
+  askQuestions?: string;
+  exploreCollaboration?: string;
+  coffeeChat?: string;
+  schedule?: string;
 }
 
-export default function Contact({ emailUrl, calendlyUrl }: ContactProps) {
+export default function Contact({
+  emailUrl,
+  calendlyUrl,
+  contactLabel = "Contact",
+  getInTouch = "Get in Touch",
+  contactDescription = "Want to chat? Feel free to reach out",
+  viaEmail = "via email",
+  askQuestions = "Ask questions",
+  exploreCollaboration = "Explore collaboration opportunities",
+  coffeeChat = "15-minute coffee chat",
+  schedule = "Schedule",
+}: ContactProps) {
   return (
     <div className="space-y-3">
       <div className="bg-foreground text-background inline-block rounded-lg px-3 py-1 text-sm">
-        Contact
+        {contactLabel}
       </div>
       <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-        Get in Touch
+        {getInTouch}
       </h2>
       <div className="mx-auto max-w-[600px] space-y-6">
         <p className="text-muted-foreground text-center text-lg leading-relaxed md:text-xl">
-          Want to chat? Feel free to reach out{" "}
+          {contactDescription}{" "}
           <Link
             href={emailUrl}
-            className="inline-flex items-center gap-1 text-blue-500 underline transition-colors hover:text-blue-600 hover:no-underline"
+            className="inline-flex items-center gap-1 text-foreground underline transition-colors hover:no-underline"
           >
-            via email
+            {viaEmail}
           </Link>{" "}
           <span className="inline-block transition-transform group-hover:translate-x-1">
             →
@@ -31,20 +50,20 @@ export default function Contact({ emailUrl, calendlyUrl }: ContactProps) {
         <div className="flex flex-col items-center space-y-4">
           <ul className="text-muted-foreground grid gap-3 text-center text-lg leading-relaxed md:text-xl">
             <li className="hover:text-foreground transition-colors">
-              • Ask questions
+              • {askQuestions}
             </li>
             <li className="hover:text-foreground transition-colors">
-              • Explore collaboration opportunities
+              • {exploreCollaboration}
             </li>
             <li className="hover:text-foreground transition-colors">
-              • 15-minute coffee chat (
+              • {coffeeChat} (
               <Link
                 href={calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 underline transition-colors hover:text-blue-600 hover:no-underline"
+                className="text-foreground underline transition-colors hover:no-underline"
               >
-                Schedule
+                {schedule}
               </Link>
               )
             </li>

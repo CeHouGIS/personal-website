@@ -61,7 +61,7 @@ export const ResumeCard = ({
 
   const cardContent = (
     <Card
-      className={`flex transition-all duration-300 ease-out hover:shadow-lg ${
+      className={`flex transition-[box-shadow] duration-300 ease-out hover:shadow-lg ${
         isTapped ? "shadow-lg" : ""
       }`}
       onTouchStart={handleTouchStart}
