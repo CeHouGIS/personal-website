@@ -6,23 +6,6 @@ import { getBlogPosts } from "@/lib/blog";
 
 const siteUrl = siteConfig.url;
 
-// Next.js Portfolio Blog Research Docs routes (via rewrite)
-const nextjsPortfolioDocsRoutes = [
-  "/open-source/nextjs-portfolio-blog-research/docs",
-  "/open-source/nextjs-portfolio-blog-research/docs/getting-started/overview",
-  "/open-source/nextjs-portfolio-blog-research/docs/getting-started/configuration",
-  "/open-source/nextjs-portfolio-blog-research/docs/getting-started/deployment",
-  "/open-source/nextjs-portfolio-blog-research/docs/customization/portfolio",
-  "/open-source/nextjs-portfolio-blog-research/docs/customization/blog",
-  "/open-source/nextjs-portfolio-blog-research/docs/customization/favicon",
-  "/open-source/nextjs-portfolio-blog-research/docs/seo-analytics/seo",
-  "/open-source/nextjs-portfolio-blog-research/docs/seo-analytics/gsc-setup",
-  "/open-source/nextjs-portfolio-blog-research/docs/seo-analytics/ga4-integration",
-  "/open-source/nextjs-portfolio-blog-research/docs/advanced/dev-env-setup",
-  "/open-source/nextjs-portfolio-blog-research/docs/advanced/ai-dev-guide",
-  "/open-source/nextjs-portfolio-blog-research/docs/advanced/video-demo-for-projects",
-];
-
 type ChangeFrequency =
   | "always"
   | "hourly"
@@ -35,12 +18,7 @@ type ChangeFrequency =
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
-  const staticPages = [
-    "",
-    "/blog",
-    "/privacy-policy",
-    "/terms-of-service",
-  ];
+  const staticPages = ["", "/blog", "/privacy-policy", "/terms-of-service"];
 
   const pages = LOCALES.flatMap((locale) => {
     return staticPages.map((page) => ({
@@ -86,18 +64,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     new Map(allBlogSitemapEntries.map((entry) => [entry.url, entry])).values(),
   );
 
-  // Next.js Portfolio Docs routes (monthly, low priority)
-  const nextjsPortfolioDocsSitemapEntries: MetadataRoute.Sitemap =
-    nextjsPortfolioDocsRoutes.map((route) => ({
-      url: `${siteUrl}${route}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as ChangeFrequency,
-      priority: 0.5,
-    }));
-
-  return [
-    ...pages,
-    ...uniqueBlogPostEntries,
-    ...nextjsPortfolioDocsSitemapEntries,
-  ];
+  return [...pages, ...uniqueBlogPostEntries];
 }
