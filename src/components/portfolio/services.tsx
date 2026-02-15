@@ -1,6 +1,20 @@
 import { Badge } from "@/components/ui/badge";
+import { ResumeCard } from "@/components/portfolio/resume-card";
+
+interface AssociationProps {
+  company: string;    // 协会名称
+  title: string;      // 职位 (e.g. Member, Chair)
+  logoUrl: string;
+  start: string;
+  end?: string;
+  location?: string;
+  description?: string;
+  href?: string;
+  badges?: readonly string[];
+}
 
 interface ServicesProps {
+  associations?: readonly AssociationProps[];
   reviewerConferences: readonly string[];
   reviewerJournals: readonly string[];
   teaching: readonly {
@@ -8,21 +22,48 @@ interface ServicesProps {
     title: string;
     location: string;
   }[];
+
+  associationsLabel?: string;
   reviewerConferencesLabel?: string;
   reviewerJournalsLabel?: string;
   teachingLabel?: string;
 }
 
+
+
 export default function Services({
+  associations,
   reviewerConferences,
   reviewerJournals,
   teaching,
+  associationsLabel = "Professional Memberships & Service:", // 默认标题
   reviewerConferencesLabel = "Reviewer of Conferences:",
   reviewerJournalsLabel = "Reviewer of Journals:",
   teachingLabel = "Teaching Assistant:",
 }: ServicesProps) {
   return (
     <div className="flex flex-col gap-y-3">
+      {Array.isArray(associations) && associations.length > 0 && (
+        <div className="flex flex-col gap-y-2">
+          <span className="text-muted-foreground text-sm">
+            {associationsLabel}
+          </span>
+          {associations.map((item) => (
+            <ResumeCard
+              key={item.company}
+              logoUrl={item.logoUrl}
+              altText={item.company}
+              title={item.company}      // 对应协会名
+              subtitle={item.title}     // 对应你的职位
+              href={item.href}
+              badges={item.badges}
+              period={`${item.start} - ${item.end ?? "Present"}`}
+              description={item.description}
+              location={item.location}
+            />
+          ))}
+        </div>
+      )}
       {Array.isArray(reviewerConferences) &&
         reviewerConferences.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">

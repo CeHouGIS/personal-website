@@ -275,64 +275,64 @@
   "education": {
     "items": [
       {
-        "school": "新加坡国立大学",
-        "href": "https://nus.edu.sg/",
-        "degree": "计算机科学博士",
-        "logoUrl": "/icon/nus.png",
+        "school": "香港科技大学",
+        "href": "https://hkust.edu.hk/",
+        "degree": "博士学位",
+        "logoUrl": "/icon/hkust.svg",
         "start": "2021",
-        "end": "2025"
+        "end": "至今"
       },
       {
-        "school": "南京大学",
-        "href": "https://www.nju.edu.cn/en/",
-        "degree": "计算机科学与技术学士学位（前2%）",
-        "logoUrl": "/icon/nju.png",
+        "school": "伦敦大学学院",
+        "href": "https://www.ucl.ac.uk/",
+        "degree": "硕士学位",
+        "logoUrl": "/icon/ucl.png",
+        "start": "2021",
+        "end": "2022"
+      },
+      {
+        "school": "武汉大学",
+        "href": "https://en.wikipedia.org/wiki/Xishan_Senior_High_School#:~:text=Jiangsu%20Xishan%20Senior%20High%20School,in%20computing%20and%20network%20facilities.",
+        "degree": "学士学位",
+        "logoUrl": "/icon/whu.png",
         "start": "2017",
         "end": "2021"
-      },
-      {
-        "school": "江苏省锡山高级中学",
-        "href": "https://en.wikipedia.org/wiki/Xishan_Senior_High_School#:~:text=Jiangsu%20Xishan%20Senior%20High%20School,in%20computing%20and%20network%20facilities.",
-        "degree": "高中文凭",
-        "logoUrl": "/icon/xishan.png",
-        "start": "2014",
-        "end": "2017"
       }
     ]
   },
   "work": {
     "items": [
       {
-        "company": "潞晨科技",
-        "href": "https://www.hpcaitech.com/",
+        "company": "北京大学",
+        "href": "https://www.pku.edu.cn/",
         "badges": [],
-        "location": "新加坡",
-        "title": "技术负责人",
-        "logoUrl": "/icon/hpc-ai.png",
-        "start": "2024年12月",
-        "end": "至今",
-        "description": "Open-Sora 和 Video-Ocean 的创始人。"
+        "location": "北京",
+        "title": "访问学者",
+        "logoUrl": "/icon/pku.png",
+        "start": "2024年2月",
+        "end": "2026年2月",
+        "description": ""
       },
       {
-        "company": "字节跳动",
-        "href": "https://bytedance.com/",
+        "company": "清华大学",
+        "href": "https://www.tsinghua.edu.cn/",
         "badges": [],
-        "location": "新加坡",
-        "title": "科研实习生",
-        "logoUrl": "/icon/bytedance.png",
-        "start": "2021年6月",
-        "end": "2022年6月",
+        "location": "北京",
+        "title": "科研助理",
+        "logoUrl": "/icon/thu.png",
+        "start": "2022年6月",
+        "end": "2023年11月",
         "description": "从事点击率预测模型的大批量训练工作，导师为周旋和程有龙。"
       },
       {
-        "company": "加州大学伯克利分校",
-        "href": "https://berkeley.edu/",
+        "company": "伦敦大学学院",
+        "href": "https://www.ucl.ac.uk/",
         "badges": [],
-        "location": "（远程）加州伯克利",
-        "title": "科研实习生",
-        "logoUrl": "/icon/ucb.png",
-        "start": "2020年4月",
-        "end": "2021年5月",
+        "location": "伦敦",
+        "title": "科研助理",
+        "logoUrl": "/icon/ucl.png",
+        "start": "2022年5月",
+        "end": "2024年5月",
         "description": "从事自监督学习和领域自适应工作，导师为岳翔宇和 Alberto Sangiovanni-Vincentelli。"
       }
     ]
@@ -341,7 +341,11 @@
     "items": [
       {
         "year": 2023,
-        "title": "新加坡国立大学研究成就奖"
+        "title": "最佳海报奖"
+      },
+      {
+        "year": 2023,
+        "title": "最佳海报奖"
       },
       {
         "year": 2023,

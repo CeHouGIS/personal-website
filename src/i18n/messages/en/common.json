@@ -14,13 +14,14 @@
             "title": "Latest News"
         },
         "publications": {
-            "title": "Publications"
+            "title": "Selected Publications"
         },
         "invitedTalks": {
             "title": "Invited Talks"
         },
         "teaching": {
             "title": "Teaching",
+            "associationsLabel": "Professional Memberships & Service:",
             "reviewerConferencesLabel": "Conference Reviewer:",
             "reviewerJournalsLabel": "Journal Reviewer:",
             "teachingLabel": "Teaching Assistant:"
@@ -87,42 +88,18 @@
         },
         "resources": [
             {
-                "name": "Blog",
-                "url": "/blog"
-            },
-            {
-                "name": "Template",
-                "url": "https://github.com/zhengzangw/nextjs-portfolio-blog-research"
-            },
-            {
                 "name": "Download CV",
                 "url": "/resume.pdf"
-            },
-            {
-                "name": "QR code",
-                "url": "/qrcode.png"
-            },
-            {
-                "name": "Business card",
-                "url": "/business-card-en.jpg"
             }
         ],
         "discover": [
             {
-                "name": "HPC-AI Lab",
-                "url": "https://ai.comp.nus.edu.sg/"
+                "name": "PKU IRSGIS",
+                "url": "https://irsgis.pku.edu.cn/"
             },
             {
-                "name": "iCyPhy",
-                "url": "https://www.icyphy.org/people.html"
-            },
-            {
-                "name": "NJU-CSE-Flyers",
-                "url": "https://nju-cse-flyers.github.io/"
-            },
-            {
-                "name": "HPC-AI Tech",
-                "url": "https://www.hpcaitech.com/"
+                "name": "HKUST CIVL",
+                "url": "https://ce.hkust.edu.hk/"
             }
         ],
         "contact": {

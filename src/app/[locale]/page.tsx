@@ -57,13 +57,6 @@ export default async function Page(props: {
     }
   };
 
-  const skills = getArrayField<string>("skills");
-  const reviewerConferences = getArrayField<string>("reviewerConferences");
-  const reviewerJournals = getArrayField<string>("reviewerJournals");
-
-  const personJsonLd = await generatePersonJsonLd(locale);
-
-  // Helper function to safely get collections items
   const getCollectionItems = <T,>(key: string): T[] => {
     try {
       const parentKey = key.split(".")[0];
@@ -86,6 +79,23 @@ export default async function Page(props: {
       return [];
     }
   };
+
+  const skills = getArrayField<string>("skills");
+  const reviewerConferences = getArrayField<string>("reviewerConferences");
+  const reviewerJournals = getArrayField<string>("reviewerJournals");
+  const associationsItems = getCollectionItems<{
+    company: string;
+    title: string;
+    logoUrl: string;
+    start: string;
+    end?: string;
+    location?: string;
+    description?: string;
+    href?: string;
+    badges?: readonly string[];
+  }>("associations.items");
+  
+  const personJsonLd = await generatePersonJsonLd(locale);
 
   // Get collections data and check if items are empty
   const newsItems = getCollectionItems<{
@@ -326,6 +336,7 @@ export default async function Page(props: {
               {t("sections.academicServices")}
             </h2>
             <Services
+              associations={associationsItems}
               reviewerConferences={reviewerConferences}
               reviewerJournals={reviewerJournals}
               teaching={teachingItems}
