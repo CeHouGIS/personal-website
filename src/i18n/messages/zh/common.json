@@ -91,38 +91,18 @@
                 "url": "/blog"
             },
             {
-                "name": "模板",
-                "url": "https://github.com/zhengzangw/nextjs-portfolio-blog-research"
-            },
-            {
                 "name": "下载简历",
-                "url": "/resume.pdf"
-            },
-            {
-                "name": "站点二维码",
-                "url": "/qrcode.png"
-            },
-            {
-                "name": "名片",
-                "url": "/business-card-zh.jpg"
+                "url": "/CV.pdf"
             }
         ],
         "discover": [
             {
-                "name": "HPC-AI Lab",
-                "url": "https://ai.comp.nus.edu.sg/"
+                "name": "北京大学遥感与地理信息研究所",
+                "url": "https://irsgis.pku.edu.cn/"
             },
             {
-                "name": "iCyPhy",
-                "url": "https://www.icyphy.org/people.html"
-            },
-            {
-                "name": "NJU-CSE-Flyers",
-                "url": "https://nju-cse-flyers.github.io/"
-            },
-            {
-                "name": "HPC-AI Tech",
-                "url": "https://www.hpcaitech.com/"
+                "name": "香港科技大学土木与环境工程系",
+                "url": "https://ce.hkust.edu.hk/"
             }
         ],
         "contact": {

@@ -1,274 +1,15 @@
 {
   "news": {
     "items": [
-      {
-        "date": "2025.10",
-        "title": "新主页 [zangwei.dev](https://zangwei.dev) 上线！欢迎访问！",
-        "content": "🎉 本网站的 [nextjs-portfolio-blog-research](https://docs-nextjs-portfolio-blog-research.zangwei.dev/) 模板已在 [GitHub](https://github.com/zhengzangw/nextjs-portfolio-blog-research) 上开源。点击即可在几分钟内部署你自己的主页。"
+{
+        "date": "2025.12",
+        "title": "新论文在 npj Urban Sustainability 发表",
+        "content": "📘 作为共同作者的一篇论文已被 npj Urban Sustainability 录用。"
       },
       {
-        "date": "2025.8",
-        "title": "[Video-Ocean Agent](https://video-ocean.com/en/agent) 上线",
-        "content": "🌊 Video-Ocean Agent 现已上线！只需点击几下即可生成长达数分钟的视频。"
-      },
-      {
-        "date": "2025.5",
-        "title": "博士毕业",
-        "content": "🎓 从新加坡国立大学 [HPC-AI Lab](https://ai.comp.nus.edu.sg/) 毕业。感谢导师和朋友们的帮助！恭喜自己！"
-      },
-      {
-        "date": "2025.3",
-        "title": "[Open-Sora 2.0](https://arxiv.org/abs/2503.09642) [![GitHub Repo stars](https://img.shields.io/github/stars/hpcaitech/Open-Sora?style=social)](https://github.com/hpcaitech/Open-Sora) 发布！",
-        "content": "🚀 尽管计算资源受限，但仍达到了 Sora 级别的指标，实现了我们提供 Sora 开源实现的目标。"
-      },
-      {
-        "date": "2024.9",
-        "title": "论文接收（[MSIER](https://arxiv.org/abs/2404.12866)，EMNLP 2024）",
-        "content": "📘 有一篇论文被 EMNLP 2024 接收。恭喜 [Yang Luo](https://yangluo7.github.io/)！"
-      },
-      {
-        "date": "2024.9",
-        "title": "[Video-Ocean](https://video-ocean.com/en/app) 上线",
-        "content": "🌊 Video-Ocean 现已上线！只需点击几下即可生成你自己的视频。"
-      },
-      {
-        "date": "2024.6",
-        "title": "论文接收（[Dataset Growth](https://arxiv.org/pdf/2405.18347)，ECCV 2024）",
-        "content": "📘 有一篇论文被 ECCV 2024 接收。恭喜 [Ziheng Qin](https://scholar.google.com/citations?user=I04VhPMAAAAJ)！"
-      },
-      {
-        "date": "2024.6",
-        "title": "[Open-Sora 1.2](https://github.com/hpcaitech/Open-Sora) 发布",
-        "content": "🚀 在超过 3000 万数据上训练的 11 亿参数模型，性能进一步提升。"
-      },
-      {
-        "date": "2024.5",
-        "title": "论文接收（[Token Crisis](https://arxiv.org/pdf/2305.13230)，ICML 2024）",
-        "content": "📘 有一篇论文被 ICML 2024 接收。恭喜 [Fuzhao Xue](https://xuefuzhao.github.io/)！"
-      },
-      {
-        "date": "2024.4",
-        "title": "[Open-Sora 1.1](https://github.com/hpcaitech/Open-Sora) 发布",
-        "content": "🚀 支持 0 秒到 15 秒、144p 到 720p、多种宽高比的视频生成，以及数据处理管道。"
-      },
-      {
-        "date": "2024.4",
-        "title": "论文接收（[Helen optimizer](https://arxiv.org/pdf/2403.00798)，WWW 2024）",
-        "content": "📘 有一篇论文被 WWW 2024 接收。恭喜 [Zirui Zhu](https://scholar.google.com/citations?user=eCAzecoAAAAJ&hl)！"
-      },
-      {
-        "date": "2024.3",
-        "title": "[Open-Sora 1.0](https://github.com/hpcaitech/Open-Sora) 发布",
-        "content": "🎥 首个开源 Sora 类视频生成模型。"
-      },
-      {
-        "date": "2024.1",
-        "title": "论文接收（[InfoBatch](https://arxiv.org/pdf/2303.04947)，ICLR 2024 口头报告）",
-        "content": "🎉 有一篇论文被 ICLR 2024 接收（口头报告）。恭喜 [Ziheng Qin](https://scholar.google.com/citations?user=I04VhPMAAAAJ) 和 [Kai Wang](https://kaiwang960112.github.io/)！"
-      },
-      {
-        "date": "2023.9",
-        "title": "论文接收（第一作者 [Sequence-Scheduling](https://arxiv.org/pdf/2305.13144)，NeurIPS 2023）",
-        "content": "🔥 有两篇论文被 NeurIPS 2023 接收。恭喜 [Fuzhao Xue](https://xuefuzhao.github.io/) 和我自己。非常感谢我的合作者们！"
-      },
-      {
-        "date": "2023.7",
-        "title": "论文接收（第一作者 [ZSCL](https://arxiv.org/pdf/2303.06628)，ICCV 2023）",
-        "content": "📄 有一篇第一作者论文被 ICCV 2023 接收。感谢所有合作者！"
-      },
-      {
-        "date": "2023.7",
-        "title": "获奖（[CAME optimizer](https://arxiv.org/abs/2307.02047)，[ACL 杰出论文](https://2023.aclweb.org/program/best_papers/)）",
-        "content": "🏅 CAME 论文获得 ACL 杰出论文奖！"
-      },
-      {
-        "date": "2023.5",
-        "title": "论文接收（[CAME optimizer](https://arxiv.org/abs/2307.02047)，ACL 2023）",
-        "content": "📘 有一篇论文被 ACL 2023 接收。恭喜 [Yang Luo](https://yangluo7.github.io/)！"
-      },
-      {
-        "date": "2023.4",
-        "title": "论文接收（[Bamboo](https://proceedings.mlr.press/v202/xue23b.html)，ICML 2023）",
-        "content": "📘 有一篇论文被 ICML 2023 接收。恭喜 [Fuzhao Xue](https://xuefuzhao.github.io/)！"
-      },
-      {
-        "date": "2023.3",
-        "title": "[ColossalChat](https://github.com/hpcaitech/ColossalAI/tree/main/applications/Chat) [![GitHub Repo Stars](https://img.shields.io/github/stars/hpcaitech/ColossalAI?style=social)](https://github.com/hpcaitech/ColossalAI/tree/main/applications/ColossalChat) 发布",
-        "content": "🤖 开源的大语言模型训练框架，让你可以训练自己的 ChatGPT 版本。恭喜 HPC-AI-Tech 的同事们！"
-      },
-      {
-        "date": "2023.2",
-        "title": "获奖（[CowClip optimizer](https://arxiv.org/abs/2204.06240)，[AAAI 杰出论文](https://aaai-23.aaai.org/wp-content/uploads/2023/02/AAAI-23-Paper-Awards-1.pdf)）",
-        "content": "🥇 CowClip 论文获得 AAAI 杰出论文奖！"
-      },
-      {
-        "date": "2022.12",
-        "title": "博士资格考试通过",
-        "content": "🎓 通过了资格考试。恭喜自己 :) 感谢导师和朋友们的帮助！"
-      },
-      {
-        "date": "2022.11",
-        "title": "论文接收（第一作者 [CowClip optimizer](https://arxiv.org/abs/2204.06240)，AAAI 2023）",
-        "content": "📑 有一篇第一作者论文被 AAAI 2023 接收。感谢所有合作者！"
-      },
-      {
-        "date": "2021.8",
-        "title": "[NJU-CSE-Flyers Handbook](https://nju-cse-flyers.github.io/) 发布",
-        "content": "📘 NJU-CSE-Flyers Handbook 2021 已发布。"
-      },
-      {
-        "date": "2021.7",
-        "title": "字节跳动实习",
-        "content": "💼 很高兴开始在字节跳动实习。"
-      },
-      {
-        "date": "2021.6",
-        "title": "从[南京大学](https://www.nju.edu.cn/)毕业",
-        "content": "🎓 获得南京大学学士学位。感谢并祝福所有老师和同学。"
-      },
-      {
-        "date": "2021.3",
-        "title": "加入[新加坡国立大学 HPC-AI](https://ai.comp.nus.edu.sg/) 博士项目",
-        "content": "📚 我将加入新加坡国立大学 HPC-AI，在总统青年教授 [Yang You](https://www.comp.nus.edu.sg/~youy/) 的指导下开始我的博士学位！"
-      },
-      {
-        "date": "2021.2",
-        "title": "论文接收（共同第一作者 [PCS-FUDA](https://arxiv.org/pdf/2103.16765)，CVPR 2021）",
-        "content": "📑 有一篇共同第一作者论文被 CVPR 2021 接收。感谢所有合作者！"
-      }
-    ]
-  },
-  "projects": {
-    "items": [
-      {
-        "title": "Video-Ocean Video Agent",
-        "href": "https://video-ocean.com/en/agent",
-        "dates": "2025年6月 - 至今",
-        "active": true,
-        "description": "Video-Ocean Video Agent 只需点击几下即可生成长达数分钟的视频，包括语音和面部。",
-        "technologies": [],
-        "authors": "",
-        "links": [
-          {
-            "type": "Website",
-            "href": "https://video-ocean.com/en/agent",
-            "icon": "globe"
-          }
-        ],
-        "image": "",
-        "video": "https://files.zangwei.dev/proj-video-agent.mp4"
-      },
-      {
-        "title": "Open-Sora [![GitHub Repo stars](https://img.shields.io/github/stars/hpcaitech/Open-Sora?style=social)](https://github.com/hpcaitech/Open-Sora)",
-        "href": "https://github.com/hpcaitech/Open-Sora",
-        "dates": "2024年3月 - 2025年3月",
-        "active": true,
-        "description": "世界首个开源 Sora 类视频生成模型——为每个人带来高效、高质量的视频制作。",
-        "technologies": [],
-        "authors": "",
-        "links": [
-          {
-            "type": "Github",
-            "href": "https://github.com/hpcaitech/Open-Sora",
-            "icon": "github"
-          },
-          {
-            "type": "Open-Sora 1.2",
-            "href": "https://arxiv.org/abs/2412.20404",
-            "icon": "paper"
-          },
-          {
-            "type": "Open-Sora 2.0",
-            "href": "https://arxiv.org/abs/2503.09642",
-            "icon": "paper"
-          }
-        ],
-        "image": "/proj-open-sora.png",
-        "video": ""
-      },
-      {
-        "title": "Video-Ocean [![Video Ocean v2.0 – #1 Product of the Day (Apr 12, 2025)](https://img.shields.io/badge/Product%20Hunt-%231%20of%20the%20Day-ff6154?logo=producthunt&logoColor=white)](https://www.producthunt.com/products/video-ocean-v2-0)",
-        "href": "https://video-ocean.com/app",
-        "dates": "2025年4月 - 至今",
-        "active": true,
-        "description": "Video-Ocean 是一个视频生成平台，允许你使用最先进的模型生成视频、图像和音频。",
-        "technologies": [],
-        "authors": "",
-        "links": [
-          {
-            "type": "Website",
-            "href": "https://video-ocean.com/app",
-            "icon": "globe"
-          }
-        ],
-        "image": "/proj-video-ocean.png",
-        "video": ""
-      },
-      {
-        "title": "本网站模板",
-        "href": "https://github.com/zhengzangw/nextjs-portfolio-blog-research",
-        "dates": "2025年10月",
-        "active": true,
-        "description": "本网站的模板，名为 Nextjs-Portfolio-Blog-Research。使用 Next.js、Tailwind CSS、Vercel 等构建。",
-        "image": "/proj-portfolio-template.png",
-        "links": [
-          {
-            "type": "Github",
-            "href": "https://github.com/zhengzangw/nextjs-portfolio-blog-research",
-            "icon": "github"
-          },
-          {
-            "type": "Docs",
-            "href": "https://docs-nextjs-portfolio-blog-research.zangwei.dev/",
-            "icon": "bookopen"
-          },
-          {
-            "type": "Blog",
-            "href": "/blog/note-nextjs-homepage",
-            "icon": "newspaper"
-          }
-        ]
-      },
-      {
-        "title": "ColossalChat [![GitHub Repo stars](https://img.shields.io/github/stars/hpcaitech/ColossalAI?style=social)](https://github.com/hpcaitech/ColossalAI)",
-        "href": "https://github.com/hpcaitech/ColossalAI/tree/main/applications/ColossalChat",
-        "dates": "2023年3月",
-        "active": true,
-        "description": "ColossalChat 是一个使用 RLHF 实现大语言模型的项目，由 Colossal-AI 驱动。",
-        "technologies": [],
-        "authors": "",
-        "links": [
-          {
-            "type": "Github",
-            "href": "https://github.com/hpcaitech/ColossalAI/tree/main/applications/ColossalChat",
-            "icon": "github"
-          },
-          {
-            "type": "Blog",
-            "href": "https://medium.com/pytorch/colossalchat-an-open-source-solution-for-cloning-chatgpt-with-a-complete-rlhf-pipeline-5edf08fb538b",
-            "icon": "newspaper"
-          }
-        ],
-        "image": "/proj-colossalchat.png",
-        "video": ""
-      },
-      {
-        "title": "Instruction in the Wild [![GitHub Repo stars](https://img.shields.io/github/stars/XueFuzhao/InstructionWild?style=social)](https://github.com/XueFuzhao/InstructionWild)",
-        "href": "https://github.com/XueFuzhao/InstructionWild",
-        "dates": "2024年4月",
-        "active": true,
-        "description": "该项目专注于通过收集来自共享 ChatGPT 使用的 11 万条指令，构建更大、更多样化的指令数据集。",
-        "technologies": [],
-        "authors": "",
-        "links": [
-          {
-            "type": "Github",
-            "href": "https://github.com/XueFuzhao/InstructionWild",
-            "icon": "github"
-          }
-        ],
-        "image": "/proj-inst-wild.png",
-        "video": ""
+        "date": "2025.12",
+        "title": "我获得了加州大学伯克利分校（UC Berkeley）的访问学生席位！",
+        "content": "🎉 拿到了加州大学伯克利分校的访问学生录取通知！将于2026年3月开始开始访问。"
       }
     ]
   },
@@ -337,504 +78,278 @@
       }
     ]
   },
-  "awards": {
+"awards": {
     "items": [
       {
-        "year": 2023,
-        "title": "最佳海报奖"
+        "year": 2025,
+        "title": "香港科技大学海外研究奖"
+      },
+      {
+        "year": 2024,
+        "title": "第二届城市科学与人类动力学研究峰会 - 最佳海报奖"
       },
       {
         "year": 2023,
-        "title": "最佳海报奖"
-      },
-      {
-        "year": 2023,
-        "title": "ACL 2023 杰出论文奖"
-      },
-      {
-        "year": 2023,
-        "title": "AAAI 2023 杰出论文奖"
+        "title": "第一届城市科学与人类动力学研究峰会 - 创新奖"
       },
       {
         "year": 2022,
-        "title": "Papers with Code 贡献者奖"
+        "title": "莱坊（Knight Frank）迪拜住房数据黑客松 - 贝佐斯/马斯克创业潜力奖"
       },
       {
         "year": 2021,
-        "title": "南京大学优秀毕业生"
+        "title": "武汉大学优秀毕业生"
+      },
+      {
+        "year": 2021,
+        "title": "武汉大学三好学生"
+      },
+      {
+        "year": 2021,
+        "title": "武汉大学优秀学士学位毕业论文"
+      },
+      {
+        "year": 2021,
+        "title": "李庆海测绘优秀学子奖学金"
+      },
+      {
+        "year": 2021,
+        "title": "武汉大学甲等奖学金"
       },
       {
         "year": 2020,
-        "title": "南京大学优秀学生"
+        "title": "武汉大学优秀学生标兵"
+      },
+      {
+        "year": 2020,
+        "title": "武汉大学三好学生"
+      },
+      {
+        "year": 2020,
+        "title": "武汉大学乙等奖学金"
+      },
+      {
+        "year": 2020,
+        "title": "武汉大学优秀学生干部"
+      },
+      {
+        "year": 2020,
+        "title": "武汉大学社会活动积极分子"
       },
       {
         "year": 2019,
-        "title": "国家精英计划一等奖学金（2次，2018-2019）"
-      },
-      {
-        "year": 2019,
-        "title": "郑钢海外学习奖学金"
+        "title": "武汉大学优秀学生"
       }
     ]
   },
   "publications": {
     "items": [
       {
-        "title": "CowClip Optimizer ![AAAI Distinguished Award](https://img.shields.io/badge/AAAI-Distinguished%20Paper%20Award-ff3557?logo=ai&logoColor=white&style=flat-square)",
-        "href": "https://arxiv.org/abs/2204.06240",
-        "dates": "AAAI 2023",
+        "title": "Deciphering exterior: building energy efficiency prediction with emerging urban big data",
+        "href": "https://www.nature.com/articles/s42949-026-00348-7",
+        "dates": "npj Urban Sustainability (2026)",
         "active": true,
-        "description": "一种可以训练大批量（约128k）点击率预测模型的优化器",
+        "description": "TBD",
         "technologies": [
-          "Rec",
-          "Optim"
+          "Urban Analysis",
+          "Deep Learning"
         ],
-        "authors": "**作者:** **Zangwei Zheng**, Pengtai Xu, Xuan Zou, Da Tang, Zhen Li, Chenguang Xi, Peng Wu, Leqi Zou, Yijie Zhu, Ming Chen, Xiangzhuo Ding, Fuzhao Xue, Ziheng Qin, Youlong Cheng, Yang You",
+        "authors": "**Authors:** Maoran Sun, **Ce Hou**, Qiaosi Li, Fan Zhang, Ronita Bardhan, Qunshan Zhao*",
         "links": [
           {
             "type": "Paper",
-            "href": "https://arxiv.org/abs/2204.06240",
+            "href": "https://www.nature.com/articles/s42949-026-00348-7",
             "icon": "paper"
           },
           {
             "type": "Github",
-            "href": "https://github.com/bytedance/LargeBatchCTR",
+            "href": "https://github.com/MaoranSun/Deciphering-Exterior",
             "icon": "github"
           }
         ],
-        "image": "/proj-cowclip.png",
+        "image": "/proj-npj.png",
         "video": ""
       },
       {
-        "title": "CAME Optimizer ![ACL Outstanding Paper Award](https://img.shields.io/badge/ACL-Outstanding%20Paper%20Award-ff3557?logo=ai&logoColor=white&style=flat-square)",
-        "href": "https://arxiv.org/abs/2307.02047",
-        "dates": "ACL 2023",
+        "title": "Multi-source geo-localization in urban built environments for crowd-sourced images by contrastive learning",
+        "href": "https://www.sciencedirect.com/science/article/pii/S092427162500382X",
+        "dates": "ISPRS Journal of Photogrammetry and Remote Sensing (2025)",
         "active": true,
-        "description": "我们提出了 CAME，一种置信度引导的优化器，结合了自适应方法的快速收敛性和内存高效方法的低内存占用。",
+        "description": "A contrastive learning approach for multi-source geo-localization in urban built environments.",
+        "technologies": [
+          "Geo-localization",
+          "Deep Learning",
+          "Contrastive Learning"
+        ],
+        "authors": "**Authors:** Qianbao Hou, **Ce Hou**, Fan Zhang, Qihao Weng*",
+        "links": [
+          {
+            "type": "Paper",
+            "href": "https://www.sciencedirect.com/science/article/pii/S092427162500382X",
+            "icon": "paper"
+          },
+          {
+            "type": "Github",
+            "href": "https://github.com/RCAIG/CrowdsourcingGeoLocalization",
+            "icon": "github"
+          }
+        ],
+        "image": "/proj-isprs.png",
+        "video": ""
+      },
+      {
+        "title": "Urban sensing in the era of large language models",
+        "href": "https://www.cell.com/the-innovation/fulltext/S2666-6758(24)00187-5",
+        "dates": "The Innovation (2025)",
+        "active": true,
+        "description": "TBD",
         "technologies": [
           "LLM",
-          "Optim"
+          "Urban Sensing"
         ],
-        "authors": "**作者:** Yang Luo, Xiaozhe Ren, **Zangwei Zheng**, Zhuo Jiang, Xin Jiang, Yang You",
+        "authors": "**Authors:** **Ce Hou**, Fan Zhang*, Yong Li, Haifeng Li, Gengchen Mai, Yuhao Kang, Ling Yao, Wenhao Yu, Yao Yao, Song Gao, Min Chen, Yu Liu",
         "links": [
           {
             "type": "Paper",
-            "href": "https://arxiv.org/abs/2307.02047",
+            "href": "https://www.cell.com/the-innovation/fulltext/S2666-6758(24)00187-5",
             "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "https://github.com/yangluo7/CAME",
-            "icon": "github"
-          },
-          {
-            "type": "Blog",
-            "href": "/blog/proj-came",
-            "icon": "newspaper"
           }
         ],
-        "image": "/proj-came.png",
+        "image": "/proj-innovation.jpg",
         "video": ""
       },
       {
-        "title": "MERIT Optimizer",
-        "href": "https://arxiv.org/abs/2508.20577",
-        "dates": "ICML 2025",
+        "title": "Transferred bias uncovers the balance between the development of physical and socioeconomic environments of cities",
+        "href": "https://www.tandfonline.com/doi/abs/10.1080/24694452.2024.2412173",
+        "dates": "Annals of the American Association of Geographers (2025)",
         "active": true,
-        "description": "MERIT 构建逐元素信任比率，通过关注局部权重结构来实现更稳健的更新缩放。",
+        "description": "TBD",
         "technologies": [
-          "LLM",
-          "Optim"
+          "Street View Images",
+          "CV",
+          "Transfer Learning"
         ],
-        "authors": "**作者:** Yang Luo, **Zangwei Zheng**, Ziheng Qin, Zirui Zhu, Yong Liu, Yang You",
+        "authors": "**Authors:** **Ce Hou**, Fan Zhang*, Yuhao Kang, Song Gao, Yong Li, Fábio Duarte, Sen Li",
         "links": [
           {
             "type": "Paper",
-            "href": "https://arxiv.org/abs/2508.20577",
+            "href": "https://www.tandfonline.com/doi/abs/10.1080/24694452.2024.2412173",
             "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "https://github.com/NUS-HPC-AI-Lab/MERIT",
-            "icon": "github"
           }
         ],
-        "image": "/proj-merit.png",
+        "image": "/proj-aaag.png",
         "video": ""
       },
       {
-        "title": "Dynamic Sequence Parallelism",
-        "href": "https://arxiv.org/abs/2403.10266",
-        "dates": "ICML 2025",
+        "title": "Measuring solar radiation and spatio-temporal distribution in different street network direction through solar trajectories and street view images",
+        "href": "https://www.sciencedirect.com/science/article/pii/S1569843224004126",
+        "dates": "International Journal of Applied Earth Observation and Geoinformation (2024)",
         "active": true,
-        "description": "一种新颖、优雅且超高效的多维 Transformer 架构序列并行方法。",
+        "description": "TBD",
         "technologies": [
-          "VideoGen",
-          "MLSys"
+          "Urban Analysis",
+          "Street View Images"
         ],
-        "authors": "**作者:** Xuanlei Zhao, Shenggan Cheng, Chang Chen, **Zangwei Zheng**, Ziming Liu, Zheming Yang, Yang You",
+        "authors": "**Authors:** Lei Wang, **Ce Hou**, Yecheng Zhang, Jie He*",
+        "image": "/proj-jag.png",
         "links": [
           {
             "type": "Paper",
-            "href": "https://arxiv.org/abs/2403.10266",
+            "href": "https://www.sciencedirect.com/science/article/pii/S1569843224004126",
             "icon": "paper"
           },
           {
             "type": "Github",
-            "href": "https://github.com/NUS-HPC-AI-Lab/VideoSys",
+            "href": "https://github.com/LandscapeWL/SHAPClab_SolarRadiation_StreetOrientation",
             "icon": "github"
-          },
-          {
-            "type": "Docs",
-            "href": "https://github.com/NUS-HPC-AI-Lab/VideoSys/blob/master/docs/dsp.md",
-            "icon": "bookopen"
-          }
-        ],
-        "image": "/proj-dsp.png",
-        "video": ""
-      },
-      {
-        "title": "InfoBatch: Dataset Pruning on the Fly",
-        "href": "https://arxiv.org/abs/2303.04947",
-        "dates": "ICLR 2024",
-        "active": true,
-        "description": "InfoBatch 通过修剪简单样本和重新加权损失来加速模型训练，在不牺牲准确性的情况下实现高达 40% 的训练加速。",
-        "technologies": [
-          "Efficient ML",
-          "CV"
-        ],
-        "authors": "**作者:** Ziheng Qin, Kai Wang, **Zangwei Zheng**, Jianyang Gu, Xiangyu Peng, Zhaopan Xu, Daquan Zhou, Lei Shang, Baigui Sun, Xuansong Xie, Yang You",
-        "image": "/proj-infobatch.png",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2303.04947",
-            "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "https://github.com/NUS-HPC-AI-Lab/InfoBatch",
-            "icon": "github"
-          },
-          {
-            "type": "Blog",
-            "href": "/blog/proj-infobatch",
-            "icon": "newspaper"
           }
         ]
-      },
-      {
-        "title": "OpenMoE [![GitHub Repo stars](https://img.shields.io/github/stars/XueFuzhao/OpenMoE?style=social)](https://github.com/XueFuzhao/OpenMoE)",
-        "href": "https://arxiv.org/abs/2402.01739",
-        "dates": "ICML 2024",
-        "active": true,
-        "description": "OpenMoE 是一个旨在点燃开源 MoE 社区的项目！我们正在发布一系列开源专家混合（MoE）大语言模型。",
-        "technologies": [
-          "LLM",
-          "MoE",
-          "Pre-training"
-        ],
-        "authors": "**作者:** Fuzhao Xue, Zian Zheng, Yao Fu, Jinjie Ni, **Zangwei Zheng**, Wangchunshu Zhou, Yang You",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2402.01739",
-            "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "https://github.com/XueFuzhao/OpenMoE",
-            "icon": "github"
-          },
-          {
-            "type": "Blog",
-            "href": "https://xuefuzhao.notion.site/Aug-2023-OpenMoE-v0-2-Release-43808efc0f5845caa788f2db52021879",
-            "icon": "newspaper"
-          }
-        ],
-        "image": "/proj-openmoe.png",
-        "video": ""
-      },
-      {
-        "title": "MSIER",
-        "href": "https://arxiv.org/abs/2404.12866",
-        "dates": "ACL 2024",
-        "active": true,
-        "description": "一种监督检索器，通过最优选择基于文本和视觉的示例来改进多模态上下文学习",
-        "technologies": [
-          "Multi-Modal",
-          "In-Context Learning"
-        ],
-        "authors": "**作者:** Yang Luo, **Zangwei Zheng**, Zirui Zhu, Yang You",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2404.12866",
-            "icon": "paper"
-          }
-        ],
-        "image": "/proj-msier.png"
-      },
-      {
-        "title": "Sequence Schedule",
-        "href": "https://arxiv.org/abs/2305.13144",
-        "dates": "NeurIPS 2023",
-        "active": true,
-        "description": "发现大语言模型可以预知它们的响应长度——这导致了序列调度，一种高效的大语言模型批量推理技术。",
-        "technologies": [
-          "LLM",
-          "Efficient ML",
-          "Inference"
-        ],
-        "authors": "**作者:** **Zangwei Zheng**, Xiaozhe Ren, Fuzhao Xue, Yang Luo, Xin Jiang, Yang You",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2305.13144",
-            "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "https://github.com/zhengzangw/Sequence-Scheduling",
-            "icon": "github"
-          },
-          {
-            "type": "Blog",
-            "href": "/blog/proj-sequence-schedule",
-            "icon": "newspaper"
-          }
-        ],
-        "image": "/proj-sequence-schedule.png",
-        "video": ""
-      },
-      {
-        "title": "Token-Crisis",
-        "href": "https://arxiv.org/abs/2305.13230",
-        "dates": "NeurIPS 2023",
-        "active": true,
-        "description": "可用数据已无法跟上大语言模型的发展步伐，但精心设计的数据重复策略可以部分缓解这一限制。",
-        "technologies": [
-          "LLM",
-          "Pre-training"
-        ],
-        "authors": "**作者:** Fuzhao Xue, Yao Fu, Wangchunshu Zhou, **Zangwei Zheng**, Yang You",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2305.13230",
-            "icon": "paper"
-          }
-        ],
-        "image": "/proj-to-repeat.png"
-      },
-      {
-        "title": "Zero-Shot Continual Learning",
-        "href": "https://arxiv.org/abs/2303.06628",
-        "dates": "ICCV 2023",
-        "active": true,
-        "description": "一种新的基准和方法，用于缓解大型预训练视觉语言模型持续学习中的遗忘问题。",
-        "technologies": [
-          "CL",
-          "VLM",
-          "Efficient ML"
-        ],
-        "authors": "**作者:** **Zangwei Zheng**, Mingyuan Ma, Kai Wang, Ziheng Qin, Xiangyu Yue, Yang You",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2303.06628",
-            "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "https://github.com/Thunderbeee/ZSCL",
-            "icon": "github"
-          },
-          {
-            "type": "Blog",
-            "href": "/blog/proj-zscl",
-            "icon": "newspaper"
-          }
-        ],
-        "image": "/proj-zscl.png",
-        "video": ""
-      },
-      {
-        "title": "DoPrompt for Domain Adaptation",
-        "href": "https://arxiv.org/abs/2208.08914",
-        "dates": "2022",
-        "active": true,
-        "description": "DoPrompt 是一种使用提示来改进领域自适应性能的简单有效方法。",
-        "technologies": [
-          "DA",
-          "CV"
-        ],
-        "authors": "**作者:** **Zangwei Zheng**, Xiangyu Yue, Kai Wang, Yang You",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2208.08914",
-            "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "hhttps://github.com/zhengzangw/DoPrompt",
-            "icon": "github"
-          }
-        ],
-        "image": "/proj-prompt-da.png",
-        "video": ""
-      },
-      {
-        "title": "PCS Learning",
-        "href": "https://arxiv.org/abs/2103.16765",
-        "dates": "CVPR 2021",
-        "active": true,
-        "description": "一个用于少样本无监督领域自适应（FUDA）的端到端原型跨域自监督学习（PCS）框架。",
-        "technologies": [
-          "DA",
-          "CV",
-          "SSL"
-        ],
-        "authors": "**作者:** Xiangyu Yue, **Zangwei Zheng** (共同第一作者), Shanghang Zhang, Yang Gao, Trevor Darrell, Kurt Keutzer, Alberto Sangiovanni Vincentelli",
-        "links": [
-          {
-            "type": "Paper",
-            "href": "https://arxiv.org/abs/2103.16765",
-            "icon": "paper"
-          },
-          {
-            "type": "Github",
-            "href": "https://github.com/zhengzangw/PCS-FUDA",
-            "icon": "github"
-          },
-          {
-            "type": "Blog",
-            "href": "https://xyue.io/pcs-fuda/index.html",
-            "icon": "newspaper"
-          }
-        ],
-        "image": "/proj-pcs-fuda.png",
-        "video": ""
       }
     ]
   },
   "invitedTalks": {
     "items": [
       {
-        "host": "QbitAI",
-        "url": "https://zhuanlan.zhihu.com/p/605329331",
-        "date": "2023.02",
-        "title": "点击率预测模型的大批量训练",
-        "logoUrl": "/icon/qbitai.png"
-      },
-      {
-        "host": "TechBeat",
-        "url": "https://www.techbeat.net/talk-info?id=762",
-        "date": "2023.03",
-        "title": "推荐模型的大批量训练",
-        "logoUrl": "/icon/techbeat.png"
-      },
-      {
-        "host": "分布式人工智能（DAI）会议，由 *Wenbin Li* 邀请",
-        "url": "https://docs.google.com/presentation/d/123kehRyZqkr21ZWxjPyMU8_lMx6ki3g9vWIT3E1glQo/edit?usp=sharing",
-        "date": "2023.12",
-        "title": "预训练基础模型上的持续学习",
-        "logoUrl": "/icon/dai.png"
-      },
-      {
-        "host": "新加坡国立大学",
-        "url": "",
-        "date": "2024.03",
-        "title": "视频生成模型",
-        "logoUrl": "/icon/nus.png"
-      },
-      {
-        "host": "英伟达，由 *Yuyang Zhao* 邀请",
-        "url": "",
-        "date": "2025.03",
-        "title": "使用 Open-Sora 进行高效训练",
-        "logoUrl": "/icon/nvidia.png"
-      },
-      {
-        "host": "腾讯，由 *Kai Wang* 邀请",
-        "url": "https://docs.google.com/presentation/d/1-ds5dfFZARYxN60Q_4fjcDV-GFwYpOcCoJzSLIyak-Q/edit?usp=sharing",
-        "date": "2025.09",
-        "title": "从零开始的 AI 视频生成模型",
-        "logoUrl": "/icon/tencent.png"
-      },
-      {
-        "host": "新加坡国立大学",
-        "url": "",
-        "date": "2025.11",
-        "title": "从视频生成到商业智能体",
-        "logoUrl": "/icon/nus.png"
+        "host": "中国地质大学（武汉）",
+        "url": "https://mp.weixin.qq.com/s/XLwo_BupujmXo_n--Nk_Pw",
+        "date": "2025年3月",
+        "title": "为公三人行·青禾论坛 | 利用机器学习中的“错误”揭示城市间的差异",
+        "logoUrl": "/icon/cugwuhan.png"
       }
     ]
   },
   "teaching": {
     "items": [
       {
-        "date": "2022年秋季",
-        "location": "新加坡国立大学",
-        "title": "CS5242: 神经网络与深度学习"
+        "date": "2024-25 春季学期",
+        "location": "香港科技大学",
+        "title": "Introduction to Smart City Economics (CIVL4640)"
       },
       {
-        "date": "2020年秋季",
-        "location": "南京大学",
-        "title": "算法分析与设计"
+        "date": "2023-24 秋季学期",
+        "location": "香港科技大学",
+        "title": "Geospatial Science & Technology for Smart City (CIVL4100U)"
+      }
+    ]
+  },
+"associations": {
+    "items": [
+      {
+        "company": "国际华人地理信息科学协会（CPGIS）",
+        "href": "https://www.cpgis.org/",
+        "badges": [],
+        "location": "全球",
+        "title": "学生理事",
+        "logoUrl": "/icon/cpgis.jpg",
+        "start": "2026年1月",
+        "end": "至今",
+        "description": "TBD"
+      },
+      {
+        "company": "GISPhere",
+        "href": "https://gisphere.info/",
+        "location": "全球",
+        "title": "联席理事",
+        "logoUrl": "/icon/gisphere.jpg",
+        "start": "2022年3月",
+        "end": "2024年3月",
+        "description": "组织与管理 GISPhere 的线上学术沙龙 (GISalon) 及人物访谈板块 (GIStory)。"
+      },
+      {
+        "company": "国际华人地理信息科学协会（CPGIS）",
+        "href": "https://www.cpgis.org/",
+        "badges": [],
+        "location": "全球",
+        "title": "媒体组成员",
+        "logoUrl": "/icon/cpgis.jpg",
+        "start": "2021年12月",
+        "end": "至今",
+        "description": "协助运营协会官方微信公众号及相关推文发布。"
       }
     ]
   },
   "skills": [
     "Python",
     "PyTorch",
-    "TensorFlow",
-    "ColossalAI",
     "vLLM",
-    "LangGraph",
-    "OpenAI API",
-    "FastMCP",
-    "FastAPI",
-    "PostgreSQL",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Docker",
-    "Terraform",
-    "GitHub Actions",
-    "GitLab CI/CD",
-    "Grafana",
-    "Vercel",
-    "Figma",
-    "Cursor",
-    "C/C++",
-    "FFmpeg"
-  ],
-  "reviewerConferences": [
-    "NeurIPS",
-    "ICLR",
-    "CVPR",
-    "ECCV",
-    "AAAI"
+    "ArcGIS",
+    "QGIS",
+    "Google Earth Engine"
   ],
   "reviewerJournals": [
-    "Pattern Recognition",
-    "TIP",
-    "TSMC-S"
+    "Scientific Data",
+    "IJGIS",
+    "CEUS",
+    "Humanity and Social Science Communications",
+    "Scientific Reports",
+    "Journal of Urban Technology",
+    "Journal of Asian Architecture and Building Engineering",
+    "Computational Urban Science"
   ],
   "social": {
-    "GitHub": {
-      "name": "GitHub",
-      "url": "https://github.com/zhengzangw",
-      "icon": "github",
-      "navbar": false,
-      "content": true,
-      "footer": true
-    },
     "GoogleScholar": {
       "name": "谷歌学术",
-      "url": "https://scholar.google.com/citations?user=FTqutJEAAAAJ&hl=en",
+      "url": "https://scholar.google.com/citations?user=8SC_Vj4AAAAJ&hl=zh-CN",
       "icon": "googlescholar",
       "navbar": false,
       "content": true,
@@ -842,179 +357,43 @@
     },
     "orcid": {
       "name": "ORCID",
-      "url": "https://orcid.org/0000-0001-7818-9534",
+      "url": "https://orcid.org/my-orcid?orcid=0000-0002-6163-3982",
       "icon": "orcid",
       "navbar": false,
       "content": false,
       "footer": true
     },
-    "dblp": {
-      "name": "DBLP",
-      "url": "https://dblp.org/pid/289/0376.html",
-      "icon": "dblp",
+    "GitHub": {
+      "name": "GitHub",
+      "url": "https://github.com/CeHouGIS",
+      "icon": "github",
       "navbar": false,
-      "content": false,
+      "content": true,
       "footer": true
     },
     "researchgate": {
       "name": "ResearchGate",
-      "url": "https://www.researchgate.net/profile/Zangwei-Zheng",
+      "url": "https://www.researchgate.net/profile/Ce-Hou",
       "icon": "researchgate",
       "navbar": false,
       "content": false,
       "footer": true
     },
-    "semanticScholar": {
-      "name": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/author/Zangwei-Zheng/2109654065",
-      "icon": "semanticScholar",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
     "LinkedIn": {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/zangweizheng/",
+      "name": "领英",
+      "url": "https://www.linkedin.com/in/hou-ce-242744223/",
       "icon": "linkedin",
       "navbar": false,
       "content": true,
       "footer": true
     },
-    "X": {
-      "name": "X",
-      "url": "https://x.com/zangweizheng",
-      "icon": "x",
-      "navbar": false,
-      "content": true,
-      "footer": true
-    },
-    "bluesky": {
-      "name": "Bluesky",
-      "url": "https://bsky.app/profile/zangwei.dev",
-      "icon": "bluesky",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "facebook": {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/zangweizheng",
-      "icon": "facebook",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "instagram": {
-      "name": "Instagram",
-      "url": "https://www.instagram.com/zangweizheng",
-      "icon": "instagram",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "telegram": {
-      "name": "Telegram",
-      "url": "https://t.me/zangweizheng",
-      "icon": "telegram",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "discord": {
-      "name": "Discord",
-      "url": "https://discordapp.com/users/zangwei",
-      "icon": "discord",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "medium": {
-      "name": "Medium",
-      "url": "https://medium.com/@zangwei",
-      "icon": "medium",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "substack": {
-      "name": "Substack",
-      "url": "https://substack.com/@zangwei",
-      "icon": "substack",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "producthunt": {
-      "name": "Product Hunt",
-      "url": "https://www.producthunt.com/@zangwei",
-      "icon": "producthunt",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "Zhihu": {
-      "name": "知乎",
-      "url": "https://www.zhihu.com/people/zheng-zang-wei",
-      "icon": "zhihu",
-      "navbar": false,
-      "content": true,
-      "footer": true
-    },
-    "Xiaohongshu": {
-      "name": "小红书",
-      "url": "https://xhslink.com/m/50gKYz1lKlC",
-      "icon": "xiaohongshu",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "weibo": {
-      "name": "微博",
-      "url": "https://weibo.com/zhengzangwei",
-      "icon": "weibo",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "wechat": {
-      "name": "微信",
-      "url": "/wechat-qrcode.jpg",
-      "icon": "wechat",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
     "email": {
-      "name": "邮箱",
-      "url": "mailto:zhengzangwei@gmail.com",
+      "name": "Email",
+      "url": "chouab@connect.ust.hk",
       "icon": "email",
       "navbar": false,
       "content": true,
       "footer": false
-    },
-    "rss": {
-      "name": "RSS",
-      "url": "/api/feed/atom.xml?locale=zh",
-      "icon": "rss",
-      "navbar": false,
-      "content": false,
-      "footer": true
-    },
-    "calendly": {
-      "name": "Calendly",
-      "url": "https://calendly.com/zhengzangw/coffee-chat",
-      "icon": "calendly",
-      "navbar": false,
-      "content": false,
-      "footer": false
-    },
-    "ethereum": {
-      "name": "Ethereum",
-      "url": "https://app.ens.domains/zangwei.eth",
-      "icon": "ethereum",
-      "navbar": false,
-      "content": false,
-      "footer": true
     }
   }
 }

@@ -88,8 +88,12 @@
         },
         "resources": [
             {
+                "name": "Blog",
+                "url": "/blog"
+            },
+            {
                 "name": "Download CV",
-                "url": "/resume.pdf"
+                "url": "/CV.pdf"
             }
         ],
         "discover": [

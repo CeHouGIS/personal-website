@@ -331,7 +331,10 @@
   "skills": [
     "Python",
     "PyTorch",
-    "vLLM"
+    "vLLM",
+    "ArcGIS",
+    "QGIS",
+    "Google Earth Engine"
   ],
   "reviewerJournals": [
     "Scientific Data",
