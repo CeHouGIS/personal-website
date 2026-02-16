@@ -52,7 +52,7 @@
         "logoUrl": "/icon/pku.png",
         "start": "2024年2月",
         "end": "2026年2月",
-        "description": ""
+        "description": "从事基于街景、遥感图像等多源大数据与先进的AI方法进行城市感知与城市理论的探索工作，导师为张帆教授、董磊教授和刘瑜教授。"
       },
       {
         "company": "清华大学",
@@ -63,7 +63,7 @@
         "logoUrl": "/icon/thu.png",
         "start": "2022年6月",
         "end": "2023年11月",
-        "description": "从事点击率预测模型的大批量训练工作，导师为周旋和程有龙。"
+        "description": "从事近实时的全球碳预算研究的工作，导师为刘竹教授。"
       },
       {
         "company": "伦敦大学学院",
@@ -74,7 +74,7 @@
         "logoUrl": "/icon/ucl.png",
         "start": "2022年5月",
         "end": "2024年5月",
-        "description": "从事自监督学习和领域自适应工作，导师为岳翔宇和 Alberto Sangiovanni-Vincentelli。"
+        "description": "从事气候变化相关的研究，导师为张浩然研究员与米志付教授"
       }
     ]
   },
@@ -303,7 +303,7 @@
         "logoUrl": "/icon/cpgis.jpg",
         "start": "2026年1月",
         "end": "至今",
-        "description": "TBD"
+        "description": "履行理事会职责，参与CPGIS的协会管理与建设。"
       },
       {
         "company": "GISPhere",
