@@ -1,7 +1,12 @@
 {
   "news": {
     "items": [
-{
+      {
+        "date": "2026.01",
+        "title": "当选 CPGIS 理事会学生理事！",
+        "content": "🗳️ 荣幸当选华人地理信息科学协会 (CPGIS) 理事会学生理事。感谢所有支持我的老师，同学，朋友以及同行，期待在未来任期内为全球 GIS 社区提供更多服务与支持！"
+      },
+      {
         "date": "2025.12",
         "title": "新论文在 npj Urban Sustainability 发表",
         "content": "📘 作为共同作者的一篇论文已被 npj Urban Sustainability 录用。"
