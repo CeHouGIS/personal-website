@@ -4,15 +4,14 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
-    return (
+  return (
     <html lang="en">
       <body>{children}</body>
-      {/* 把组件放在这里，并填入你的 ID */}
-      <GoogleAnalytics gaId="G-G06J09XH2K" />
+      
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      
     </html>
   )
 }
-
-
