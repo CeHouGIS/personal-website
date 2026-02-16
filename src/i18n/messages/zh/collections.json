@@ -394,7 +394,7 @@
     },
     "email": {
       "name": "Email",
-      "url": "chouab@connect.ust.hk",
+      "url": "mailto:chouab@connect.ust.hk",
       "icon": "email",
       "navbar": false,
       "content": true,
