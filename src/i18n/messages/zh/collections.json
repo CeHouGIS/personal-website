@@ -32,7 +32,7 @@
         "school": "伦敦大学学院",
         "href": "https://www.ucl.ac.uk/",
         "degree": "硕士学位",
-        "logoUrl": "/icon/ucl.png",
+        "logoUrl": "/icon/ucl.webp",
         "start": "2021",
         "end": "2022"
       },
@@ -76,7 +76,7 @@
         "badges": [],
         "location": "伦敦",
         "title": "科研助理",
-        "logoUrl": "/icon/ucl.png",
+        "logoUrl": "/icon/ucl.webp",
         "start": "2022年5月",
         "end": "2024年5月",
         "description": "从事气候变化相关的研究，导师为张浩然研究员与米志付教授"
