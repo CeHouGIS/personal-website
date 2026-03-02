@@ -49,6 +49,17 @@
   "work": {
     "items": [
       {
+        "company": "加州大学伯克利分校",
+        "href": "https://www.berkeley.edu/",
+        "badges": [],
+        "location": "Berkeley, USA",
+        "title": "访问博士生",
+        "logoUrl": "/icon/ucb.png",
+        "start": "2026年3月",
+        "end": "至今",
+        "description": "TBD"
+      },
+      {
         "company": "北京大学",
         "href": "https://www.pku.edu.cn/",
         "badges": [],
