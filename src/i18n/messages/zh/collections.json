@@ -291,6 +291,13 @@
   "invitedTalks": {
     "items": [
       {
+        "host": "德克萨斯大学奥斯汀分校GISense实验室",
+        "url": "",
+        "date": "2026年3月",
+        "title": "Leveraging GeoAI and LLM for sensing the sustainable urban development",
+        "logoUrl": "/icon/utaustin_logo.png"
+      },
+      {
         "host": "中国地质大学（武汉）",
         "url": "https://mp.weixin.qq.com/s/XLwo_BupujmXo_n--Nk_Pw",
         "date": "2025年3月",
