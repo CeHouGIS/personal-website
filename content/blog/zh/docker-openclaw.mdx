@@ -288,28 +288,28 @@ Sessions OK: ~/.OpenClaw/agents/main/sessions
 
 首先，进入[Discord Developer Portal](https://discord.com/developers/applications/)中，添加新的APP
 
-![点击界面右上角创建新app](public/blogs/images/docker-openclaw/get-new-bot.jpg)
+![点击界面右上角创建新app](../images/docker-openclaw/get-new-bot.jpg)
 
 然后，给这个项目起一个名字
-![为该项目命名](public/blogs/images/docker-openclaw/project-name.jpg)
+![为该项目命名](../images/docker-openclaw/project-name.jpg)
 
 之后，点击左侧**机器人**页面，设置机器人的授权意图如图所示：
-![设置机器人](public/blogs/images/docker-openclaw/bot-setting.jpg)
+![设置机器人](../images/docker-openclaw/bot-setting.jpg)
 
 然后，点击左侧OAuth2界面，进行进一步配置
-![OAuth2设置界面](public/blogs/images/docker-openclaw/oauth-setting.jpg)
+![OAuth2设置界面](../images/docker-openclaw/oauth-setting.jpg)
 
 在OAuth2中，对**机器人权限**进行配置
-![在OAuth2中设置机器人权限](public/blogs/images/docker-openclaw/oauth-bot-auth.jpg)
+![在OAuth2中设置机器人权限](../images/docker-openclaw/oauth-bot-auth.jpg)
 
 在OAuth2中，对**OAuth2 URL生成器**进行配置
-![在OAuth2中设置OAuth2 URL生成器](public/blogs/images/docker-openclaw/oauth-url.jpg)
+![在OAuth2中设置OAuth2 URL生成器](../images/docker-openclaw/oauth-url.jpg)
 
 完成以上配置，将下方生成的链接复制到浏览器中
-![机器人链接](public/blogs/images/docker-openclaw/oauth-url.jpg)
+![机器人链接](../images/docker-openclaw/oauth-url.jpg)
 
 最后，让机器人加入你的Discord服务器中
-![让机器人加入服务器](public/blogs/images/docker-openclaw/robot-connection.jpg)
+![让机器人加入服务器](../images/docker-openclaw/robot-connection.jpg)
 
 ## 6. 网关配置
 
@@ -352,7 +352,7 @@ OpenClaw gateway --port 18789 --bind lan
 ```
 
 启动网关后，在Discord和bot对话，获得配对码，再将配对码输入到OpenClaw的控制台中，就可以将OpenClaw和Discord配对:
-![OpenClaw和Discord配对](Public/blogs/images/docker-openclaw/pairing.png)
+![OpenClaw和Discord配对](../images/docker-openclaw/pairing.png)
 
 注意：如果系统抛出 OpenClaw: access not configured 的提示，请记录控制台输出的 Pairing code，并及时联系 Bot 管理员完成设备授权。
 
