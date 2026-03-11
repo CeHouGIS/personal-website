@@ -97,7 +97,181 @@ npm i -g openclaw@latest
 openclaw onboard
 ```
 
-在配置openclaw的过程中
+在配置openclaw的过程中，我们需要依次按照Openclaw的安装指引进行一系列的操作。在这里，作者使用了KiMi模型作为对话的基础，使用Discord作为外接的应用程序。如需其他程序的教程，可能会在后续补充。
+```Markdown
+◇  I understand this is personal-by-default and shared/multi-user use requires lock-down. Continue?
+│  Yes
+│
+◇  Onboarding mode
+│  QuickStart
+│
+◇  QuickStart ─────────────────────────╮
+│                                      │
+│  Gateway port: 18789                 │
+│  Gateway bind: Loopback (127.0.0.1)  │
+│  Gateway auth: Token (default)       │
+│  Tailscale exposure: Off             │
+│  Direct to chat channels.            │
+│                                      │
+├──────────────────────────────────────╯
+│
+◇  Model/auth provider
+│  MiniMax
+│
+◇  MiniMax auth method
+│  MiniMax M2.5
+│
+◇  How do you want to provide this API key?
+│  Paste API key now
+│
+◇  Enter MiniMax API key
+│  【your API key. e.g.: sk-xxxx】
+│
+◇  Default model
+│  Keep current (minimax/MiniMax-M2.5)
+│
+◇  Channel status ────────────────────────────╮
+│                                             │
+│  Telegram: needs token                      │
+│  WhatsApp (default): not linked             │
+│  Discord: needs token                       │
+│  Slack: needs tokens                        │
+│  Signal: needs setup                        │
+│  signal-cli: missing (signal-cli)           │
+│  iMessage: needs setup                      │
+│  imsg: missing (imsg)                       │
+│  IRC: not configured                        │
+│  Google Chat: not configured                │
+│  LINE: not configured                       │
+│  Feishu: install plugin to enable           │
+│  Google Chat: install plugin to enable      │
+│  Nostr: install plugin to enable            │
+│  Microsoft Teams: install plugin to enable  │
+│  Mattermost: install plugin to enable       │
+│  Nextcloud Talk: install plugin to enable   │
+│  Matrix: install plugin to enable           │
+│  BlueBubbles: install plugin to enable      │
+│  LINE: install plugin to enable             │
+│  Zalo: install plugin to enable             │
+│  Zalo Personal: install plugin to enable    │
+│  Synology Chat: install plugin to enable    │
+│  Tlon: install plugin to enable             │
+│                                             │
+├─────────────────────────────────────────────╯
+│
+◇  How channels work ───────────────────────────────────────────────────────────────────────╮
+│                                                                                           │
+│  DM security: default is pairing; unknown DMs get a pairing code.                         │
+│  Approve with: openclaw pairing approve <channel> <code>                                  │
+│  Public DMs require dmPolicy="open" + allowFrom=["*"].                                    │
+│  Multi-user DMs: run: openclaw config set session.dmScope "per-channel-peer" (or          │
+│  "per-account-channel-peer" for multi-account channels) to isolate sessions.              │
+│  Docs: channels/pairing              │
+│                                                                                           │
+│  Telegram: simplest way to get started — register a bot with @BotFather and get going.    │
+│  WhatsApp: works with your own number; recommend a separate phone + eSIM.                 │
+│  Discord: very well supported right now.                                                  │
+│  IRC: classic IRC networks with DM/channel routing and pairing controls.                  │
+│  Google Chat: Google Workspace Chat app with HTTP webhook.                                │
+│  Slack: supported (Socket Mode).                                                          │
+│  Signal: signal-cli linked device; more setup (David Reagans: "Hop on Discord.").         │
+│  iMessage: this is still a work in progress.                                              │
+│  LINE: LINE Messaging API webhook bot.                                                    │
+│  Feishu: 飞书/Lark enterprise messaging with doc/wiki/drive tools.                        │
+│  Nostr: Decentralized protocol; encrypted DMs via NIP-04.                                 │
+│  Microsoft Teams: Bot Framework; enterprise support.                                      │
+│  Mattermost: self-hosted Slack-style chat; install the plugin to enable.                  │
+│  Nextcloud Talk: Self-hosted chat via Nextcloud Talk webhook bots.                        │
+│  Matrix: open protocol; install the plugin to enable.                                     │
+│  BlueBubbles: iMessage via the BlueBubbles mac app + REST API.                            │
+│  Zalo: Vietnam-focused messaging platform with Bot API.                                   │
+│  Zalo Personal: Zalo personal account via QR code login.                                  │
+│  Synology Chat: Connect your Synology NAS Chat to OpenClaw with full agent capabilities.  │
+│  Tlon: decentralized messaging on Urbit; install the plugin to enable.                    │
+│                                                                                           │
+├───────────────────────────────────────────────────────────────────────────────────────────╯
+│
+◇  Select channel (QuickStart)
+│  Discord (Bot API)
+│
+◇  Discord bot token ──────────────────────────────────────────────────────────────────────╮
+│                                                                                          │
+│  1) Discord Developer Portal → Applications → New Application                            │
+│  2) Bot → Add Bot → Reset Token → copy token                                             │
+│  3) OAuth2 → URL Generator → scope 'bot' → invite to your server                         │
+│  Tip: enable Message Content Intent if you need message text. (Bot → Privileged Gateway  │
+│  Intents → Message Content Intent)                                                       │
+│  Docs: discord                               │
+│                                                                                          │
+├──────────────────────────────────────────────────────────────────────────────────────────╯
+│
+◇  How do you want to provide this Discord bot token?
+│  Enter Discord bot token
+│
+◇  Enter Discord bot token
+│  【Your discord bot token】
+│
+◇  Configure Discord channels access?
+│  Yes
+│
+◇  Discord channels access
+│  Allowlist (recommended)
+│
+◇  Discord channels allowlist (comma-separated)
+│  【your discord channels. e.g.: 12345678/#general】
+│
+◇  Discord channels ─────────────────────────────────────────╮
+│                                                            │
+│  Unresolved (kept as typed): 1480702678332997833/#general  │
+│                                                            │
+├────────────────────────────────────────────────────────────╯
+│
+◇  Selected channels ────────────────────────────────────────────╮
+│                                                                │
+│  Discord — very well supported right now. Docs:                │
+│  discord  │
+│                                                                │
+├────────────────────────────────────────────────────────────────╯
+Updated ~/.openclaw/openclaw.json
+Workspace OK: ~/.openclaw/workspace
+Sessions OK: ~/.openclaw/agents/main/sessions
+│
+◇  Web search ────────────────────────────────────────╮
+│                                                     │
+│  Web search lets your agent look things up online.  │
+│  Choose a provider and paste your API key.          │
+│  Docs: https://docs.openclaw.ai/tools/web           │
+│                                                     │
+├─────────────────────────────────────────────────────╯
+│
+◇  Search provider
+│  Skip for now
+│
+◇  Skills status ─────────────╮
+│                             │
+│  Eligible: 4                │
+│  Missing requirements: 40   │
+│  Unsupported on this OS: 7  │
+│  Blocked by allowlist: 0    │
+│                             │
+├─────────────────────────────╯
+│
+◇  Configure skills now? (recommended)
+│  No
+│
+◇  Hooks ──────────────────────────────────────────────────────────────────╮
+│                                                                          │
+│  Hooks let you automate actions when agent commands are issued.          │
+│  Example: Save session context to memory when you issue /new or /reset.  │
+│                                                                          │
+│  Learn more: https://docs.openclaw.ai/automation/hooks                   │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+│
+◇  Enable hooks?
+│  Skip for now
+
+```
 
 关键：解决网络与网关链接问题
 如果您在启动时遇到 Health check failed: gateway closed 错误，这通常是因为默认的 loopback (localhost) 绑定无法在 Docker 的桥接网络模式下被外部正常访问。
