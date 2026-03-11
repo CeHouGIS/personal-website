@@ -40,8 +40,10 @@ CMD ["/bin/bash"]
 ```
 
 ## 2. 构建与运行容器
-构建镜像
-进入您的工作目录并执行构建命令，生成自定义镜像：
+
+**构建镜像**
+
+首先，我们需要定义一个包含基础工具链的镜像。建议在宿主机创建一个专用的工作目录（例如~/Desktop/openclaw_env）。然后我们进入这个额工作目录并执行构建命令，生成自定义镜像：
 
 ```Bash
 cd ~/Desktop/openclaw_env
@@ -60,18 +62,10 @@ docker run -itd --name openclaw -v ~/Desktop/openclaw_env:/app openclaw-env
 docker exec -it openclaw /bin/bash
 ```
 
-## 3. 容器内环境深度配置
+## 3. 容器内环境配置
 进入容器后，我们需要手动部署 OpenClaw 的底层编译依赖以及 Node.js 运行环境。
 
-安装编译依赖
-
-```Bash
-apt-get update
-apt-get install -y cmake build-essential libsdl2-dev libglew-dev git
-安装 Node.js 22 (含 npm)
-```
-
-如果项目底层或周边工具链依赖 npm，请按照以下步骤部署最新的 LTS 版本：
+安装编译依赖。如果项目底层或周边工具链依赖 npm，请按照以下步骤部署最新的 LTS 版本：
 
 ```Bash
 # 1. 更新软件包列表并安装 curl 下载工具
