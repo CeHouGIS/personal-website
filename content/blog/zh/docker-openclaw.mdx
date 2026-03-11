@@ -74,8 +74,14 @@ apt-get install -y cmake build-essential libsdl2-dev libglew-dev git
 如果项目底层或周边工具链依赖 npm，请按照以下步骤部署最新的 LTS 版本：
 
 ```Bash
-# 获取并执行 Node.js 22 的官方安装脚本
-curl -fsSL [https://deb.nodesource.com/setup_22.x](https://deb.nodesource.com/setup_22.x) | bash -
+# 1. 更新软件包列表并安装 curl 下载工具
+apt-get update
+apt-get install -y curl
+
+# 2. 获取 Node.js 22 版本的官方安装脚本并执行
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+
+# 3. 安装 Node.js（npm 会自动跟随安装）
 apt-get install -y nodejs
 ```
 
@@ -86,6 +92,8 @@ apt-get install -y nodejs
 npm i -g openclaw@latest
 openclaw onboard
 ```
+
+在配置openclaw的过程中
 
 关键：解决网络与网关链接问题
 如果您在启动时遇到 Health check failed: gateway closed 错误，这通常是因为默认的 loopback (localhost) 绑定无法在 Docker 的桥接网络模式下被外部正常访问。
