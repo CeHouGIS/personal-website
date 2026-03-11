@@ -10,7 +10,7 @@ summary: "本文详细记录了如何使用 Docker 容器化技术搭建 OpenCla
 
 首先，我们需要定义一个包含基础工具链的镜像。建议在宿主机创建一个专用的工作目录（例如 `~/Desktop/openclaw_env`），并在该目录下新建 `Dockerfile` 文件。
 
-```
+```docker
 # 1. 使用您习惯的基础镜像（如 ubuntu:22.04）
 FROM ubuntu:22.04
 
@@ -60,7 +60,7 @@ docker run -itd --name openclaw -v ~/Desktop/openclaw_env:/app openclaw-env
 docker exec -it openclaw /bin/bash
 ```
 
-3. 容器内环境深度配置
+## 3. 容器内环境深度配置
 进入容器后，我们需要手动部署 OpenClaw 的底层编译依赖以及 Node.js 运行环境。
 
 安装编译依赖
@@ -80,7 +80,7 @@ curl -fsSL [https://deb.nodesource.com/setup_22.x](https://deb.nodesource.com/se
 apt-get install -y nodejs
 ```
 
-4. OpenClaw 部署与网关配置
+## 4. OpenClaw 部署与网关配置
 安装与初始化
 
 ```Bash
