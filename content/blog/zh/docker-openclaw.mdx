@@ -282,15 +282,17 @@ Sessions OK: ~/.OpenClaw/agents/main/sessions
 ```
 
 ## 5. Discord机器人配置
+本文作者主要参照[OpenClaw官方提供的Discord安装教程](https://docs.openclaw.ai/channels/discord)实现的Discord机器人的安装。
 
+首先，进入[Discord Developer Portal](https://discord.com/developers/applications/)中，添加新的APP
 
 ## 6. 网关配置
 
-关键：解决网络与网关链接问题
-如果您在启动时遇到 Health check failed: gateway closed 错误，这通常是因为默认的 loopback (localhost) 绑定无法在 Docker 的桥接网络模式下被外部正常访问。
+**解决网络与网关链接问题**
 
-修改配置文件：
-需要进入配置目录并调整网关的绑定策略。
+如果在启动时遇到 Health check failed: gateway closed 错误，这通常是因为默认的 loopback (localhost) 绑定无法在 Docker 的桥接网络模式下被外部正常访问。
+
+面对这个问题，我们首先需要进入配置目录并调整网关的绑定策略。
 
 ```Bash
 cd /root/.OpenClaw/
@@ -315,12 +317,16 @@ cd /root/.OpenClaw/
 ....
 }
 ```
-手动启动网关：
+
+**手动启动网关**
+
 配置完成后，通过以下命令指定端口和局域网绑定模式启动网关：
 
 ```Bash
 OpenClaw gateway --port 18789 --bind lan
 ```
+
+
 
 注意：如果系统抛出 OpenClaw: access not configured 的提示，请记录控制台输出的 Pairing code，并及时联系 Bot 管理员完成设备授权。
 
