@@ -59,13 +59,21 @@ docker build -t openclaw-env .
 docker run -itd --name openclaw -v ~/Desktop/openclaw_env:/app openclaw-env
 
 # 进入容器内部的交互式终端
+docker start openclaw
 docker exec -it openclaw /bin/bash
 ```
 
 ## 3. 容器内环境配置
 进入容器后，我们需要手动部署 OpenClaw 的底层编译依赖以及 Node.js 运行环境。
 
-安装编译依赖。如果项目底层或周边工具链依赖 npm，请按照以下步骤部署最新的 LTS 版本：
+**安装编译依赖**
+
+```Bash
+apt-get update
+apt-get install -y cmake build-essential libsdl2-dev libglew-dev git
+```
+
+我们将选择npm工具完成openclaw的配置，这是openclaw官方较为推荐的做法。下面按照以下步骤部署最新的 LTS 版本：
 
 ```Bash
 # 1. 更新软件包列表并安装 curl 下载工具
@@ -80,7 +88,9 @@ apt-get install -y nodejs
 ```
 
 ## 4. OpenClaw 部署与网关配置
-安装与初始化
+
+**安装与初始化**
+在这一步我们完成openclaw的配置
 
 ```Bash
 npm i -g openclaw@latest
