@@ -90,6 +90,7 @@ apt-get install -y nodejs
 ## 4. OpenClaw 部署
 
 **安装与初始化**
+
 在这一步我们完成openclaw的配置
 
 ```Bash
@@ -117,25 +118,31 @@ openclaw onboard
 ├──────────────────────────────────────╯
 │
 ◇  Model/auth provider
-│  MiniMax
+│  Moonshot AI (Kimi K2.5)
 │
-◇  MiniMax auth method
-│  MiniMax M2.5
+◇  Moonshot AI (Kimi K2.5) auth method
+│  Kimi API key (.cn)
 │
 ◇  How do you want to provide this API key?
 │  Paste API key now
 │
-◇  Enter MiniMax API key
-│  【your API key. e.g.: sk-xxxx】
+◇  Enter Moonshot API key (.cn)
+│  【your API Key. e.g.: sk-xxxx】
+│
+◇  Model configured ────────────────────────╮
+│                                           │
+│  Default model set to moonshot/kimi-k2.5  │
+│                                           │
+├───────────────────────────────────────────╯
 │
 ◇  Default model
-│  Keep current (minimax/MiniMax-M2.5)
+│  Keep current (moonshot/kimi-k2.5)
 │
 ◇  Channel status ────────────────────────────╮
 │                                             │
 │  Telegram: needs token                      │
 │  WhatsApp (default): not linked             │
-│  Discord: needs token                       │
+│  Discord: configured                        │
 │  Slack: needs tokens                        │
 │  Signal: needs setup                        │
 │  signal-cli: missing (signal-cli)           │
@@ -167,7 +174,7 @@ openclaw onboard
 │  Public DMs require dmPolicy="open" + allowFrom=["*"].                                    │
 │  Multi-user DMs: run: openclaw config set session.dmScope "per-channel-peer" (or          │
 │  "per-account-channel-peer" for multi-account channels) to isolate sessions.              │
-│  Docs: channels/pairing              │
+│  Docs: channels/pairing                                                                   │
 │                                                                                           │
 │  Telegram: simplest way to get started — register a bot with @BotFather and get going.    │
 │  WhatsApp: works with your own number; recommend a separate phone + eSIM.                 │
@@ -202,7 +209,7 @@ openclaw onboard
 │  3) OAuth2 → URL Generator → scope 'bot' → invite to your server                         │
 │  Tip: enable Message Content Intent if you need message text. (Bot → Privileged Gateway  │
 │  Intents → Message Content Intent)                                                       │
-│  Docs: discord                               │
+│  Docs: discord                                                                           │
 │                                                                                          │
 ├──────────────────────────────────────────────────────────────────────────────────────────╯
 │
@@ -230,7 +237,7 @@ openclaw onboard
 ◇  Selected channels ────────────────────────────────────────────╮
 │                                                                │
 │  Discord — very well supported right now. Docs:                │
-│  discord  │
+│  discord                                                       │
 │                                                                │
 ├────────────────────────────────────────────────────────────────╯
 Updated ~/.openclaw/openclaw.json
@@ -273,6 +280,9 @@ Sessions OK: ~/.openclaw/agents/main/sessions
 │  Skip for now
 
 ```
+
+## 5. Discord机器人配置
+
 
 ## 6. 网关配置
 
