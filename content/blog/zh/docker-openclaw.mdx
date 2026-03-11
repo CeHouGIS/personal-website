@@ -8,7 +8,7 @@ summary: "本文详细记录了如何使用 Docker 容器化技术搭建 OpenCla
 
 ## 1. 准备 Dockerfile
 
-首先，我们需要定义一个包含基础工具链的镜像。建议在宿主机创建一个专用的工作目录（例如 `~/Desktop/openclaw_env`），并在该目录下新建 `Dockerfile` 文件。
+首先，我们需要定义一个包含基础工具链的镜像。建议在宿主机创建一个专用的工作目录（例如 `~/Desktop/OpenClaw_env`），并在该目录下新建 `Dockerfile` 文件。
 
 ```Markdown
 # 1. 使用您习惯的基础镜像（如 ubuntu:22.04）
@@ -43,11 +43,11 @@ CMD ["/bin/bash"]
 
 **构建镜像**
 
-首先，我们需要定义一个包含基础工具链的镜像。建议在宿主机创建一个专用的工作目录（例如~/Desktop/openclaw_env）。然后我们进入这个额工作目录并执行构建命令，生成自定义镜像：
+首先，我们需要定义一个包含基础工具链的镜像。建议在宿主机创建一个专用的工作目录（例如~/Desktop/OpenClaw_env）。然后我们进入这个额工作目录并执行构建命令，生成自定义镜像：
 
 ```Bash
-cd ~/Desktop/openclaw_env
-docker build -t openclaw-env .
+cd ~/Desktop/OpenClaw_env
+docker build -t OpenClaw-env .
 ```
 
 **创建并启动容器**
@@ -56,11 +56,11 @@ docker build -t openclaw-env .
 
 ```Bash
 # 后台启动并挂载目录
-docker run -itd --name openclaw -v ~/Desktop/openclaw_env:/app openclaw-env
+docker run -itd --name OpenClaw -v ~/Desktop/OpenClaw_env:/app OpenClaw-env
 
 # 进入容器内部的交互式终端
-docker start openclaw
-docker exec -it openclaw /bin/bash
+docker start OpenClaw
+docker exec -it OpenClaw /bin/bash
 ```
 
 ## 3. 容器内环境配置
@@ -73,7 +73,7 @@ apt-get update
 apt-get install -y cmake build-essential libsdl2-dev libglew-dev git
 ```
 
-我们将选择npm工具完成openclaw的配置，这是openclaw官方较为推荐的做法。下面按照以下步骤部署最新的 LTS 版本：
+我们将选择npm工具完成OpenClaw的配置，这是OpenClaw官方较为推荐的做法。下面按照以下步骤部署最新的 LTS 版本：
 
 ```Bash
 # 1. 更新软件包列表并安装 curl 下载工具
@@ -91,14 +91,14 @@ apt-get install -y nodejs
 
 **安装与初始化**
 
-在这一步我们完成openclaw的配置
+在这一步我们完成OpenClaw的配置
 
 ```Bash
-npm i -g openclaw@latest
-openclaw onboard
+npm i -g OpenClaw@latest
+OpenClaw onboard
 ```
 
-在配置openclaw的过程中，我们需要依次按照Openclaw的安装指引进行一系列的操作。在这里，作者使用了KiMi模型作为对话的基础，使用Discord作为外接的应用程序。如需其他程序的教程，可能会在后续补充。
+在配置OpenClaw的过程中，我们需要依次按照OpenClaw的安装指引进行一系列的操作。在这里，作者使用了KiMi模型作为对话的基础，使用Discord作为外接的应用程序。如需其他程序的教程，可能会在后续补充。
 
 ```Markdown
 ◇  I understand this is personal-by-default and shared/multi-user use requires lock-down. Continue?
@@ -170,9 +170,9 @@ openclaw onboard
 ◇  How channels work ───────────────────────────────────────────────────────────────────────╮
 │                                                                                           │
 │  DM security: default is pairing; unknown DMs get a pairing code.                         │
-│  Approve with: openclaw pairing approve <channel> <code>                                  │
+│  Approve with: OpenClaw pairing approve <channel> <code>                                  │
 │  Public DMs require dmPolicy="open" + allowFrom=["*"].                                    │
-│  Multi-user DMs: run: openclaw config set session.dmScope "per-channel-peer" (or          │
+│  Multi-user DMs: run: OpenClaw config set session.dmScope "per-channel-peer" (or          │
 │  "per-account-channel-peer" for multi-account channels) to isolate sessions.              │
 │  Docs: channels/pairing                                                                   │
 │                                                                                           │
@@ -240,15 +240,15 @@ openclaw onboard
 │  discord                                                       │
 │                                                                │
 ├────────────────────────────────────────────────────────────────╯
-Updated ~/.openclaw/openclaw.json
-Workspace OK: ~/.openclaw/workspace
-Sessions OK: ~/.openclaw/agents/main/sessions
+Updated ~/.OpenClaw/OpenClaw.json
+Workspace OK: ~/.OpenClaw/workspace
+Sessions OK: ~/.OpenClaw/agents/main/sessions
 │
 ◇  Web search ────────────────────────────────────────╮
 │                                                     │
 │  Web search lets your agent look things up online.  │
 │  Choose a provider and paste your API key.          │
-│  Docs: https://docs.openclaw.ai/tools/web           │
+│  Docs: https://docs.OpenClaw.ai/tools/web           │
 │                                                     │
 ├─────────────────────────────────────────────────────╯
 │
@@ -272,7 +272,7 @@ Sessions OK: ~/.openclaw/agents/main/sessions
 │  Hooks let you automate actions when agent commands are issued.          │
 │  Example: Save session context to memory when you issue /new or /reset.  │
 │                                                                          │
-│  Learn more: https://docs.openclaw.ai/automation/hooks                   │
+│  Learn more: https://docs.OpenClaw.ai/automation/hooks                   │
 │                                                                          │
 ├──────────────────────────────────────────────────────────────────────────╯
 │
@@ -293,10 +293,10 @@ Sessions OK: ~/.openclaw/agents/main/sessions
 需要进入配置目录并调整网关的绑定策略。
 
 ```Bash
-cd /root/.openclaw/
+cd /root/.OpenClaw/
 ```
 
-将 openclaw.json 中的 gateway 字段进行如下修改：
+将 OpenClaw.json 中的 gateway 字段进行如下修改：
 
 ```JSON
 // 修改前
@@ -319,24 +319,18 @@ cd /root/.openclaw/
 配置完成后，通过以下命令指定端口和局域网绑定模式启动网关：
 
 ```Bash
-openclaw gateway --port 18789 --bind lan
+OpenClaw gateway --port 18789 --bind lan
 ```
 
 注意：如果系统抛出 OpenClaw: access not configured 的提示，请记录控制台输出的 Pairing code，并及时联系 Bot 管理员完成设备授权。
 
-5. 常见痛点与进阶建议
+**常见痛点与进阶建议**
+
 🖥️ 图形显示 (GUI) 穿透
 Docker 容器默认处于无头（Headless）状态，不支持直接的图形化输出。
 
-Mac 用户：需要额外安装 XQuartz，并在启动容器时配置 DISPLAY 环境变量进行 X11 转发。
+Mac 用户需要额外安装 XQuartz，并在启动容器时配置 DISPLAY 环境变量进行 X11 转发。
 
-最佳实践：建议将容器纯粹作为编译和后端逻辑的开发环境，将 GUI 前端运行在宿主机上，或采用远端 Web 仪表盘进行可视化控制。
+建议将容器纯粹作为编译和后端逻辑的开发环境，将 GUI 前端运行在宿主机上，或采用远端 Web 仪表盘进行可视化控制。
 
-🚀 性能与架构 (Apple Silicon 适配)
-对于使用 M1/M2/M3 等 ARM 架构芯片的 Mac 开发者：
-
-Docker Desktop 默认会拉取并运行 linux/arm64 架构的镜像。
-
-若项目中存在严格依赖 x86 架构的底层库，请在 build 或 run 阶段显式追加 --platform linux/amd64 参数。但需注意，通过 Rosetta 2 转译运行 x86 镜像会带来一定的性能损耗。
-
-希望这篇指南能帮助您快速扫清 OpenClaw 容器化部署的障碍！如果您在配置过程中遇到任何网络转发或依赖安装的疑难杂症，欢迎在评论区留言交流。
+希望这篇指南能帮助您快速扫清 OpenClaw 容器化部署的障碍！如果您在配置过程中遇到任何网络转发或依赖安装的疑难杂症，欢迎进一步交流。
