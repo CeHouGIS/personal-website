@@ -99,6 +99,7 @@ OpenClaw onboard
 ```
 
 在配置OpenClaw的过程中，我们需要依次按照OpenClaw的安装指引进行一系列的操作。在这里，作者使用了KiMi模型作为对话的基础，使用Discord作为外接的应用程序。如需其他程序的教程，可能会在后续补充。
+
 本博客仅展示OpenClaw的配置以及与软件链接的过程，因此关于Skills和Hooks的配置都选择了跳过。
 
 ```Markdown
@@ -327,17 +328,7 @@ cd /root/.OpenClaw/
 OpenClaw gateway --port 18789 --bind lan
 ```
 
-
-
 注意：如果系统抛出 OpenClaw: access not configured 的提示，请记录控制台输出的 Pairing code，并及时联系 Bot 管理员完成设备授权。
 
-**常见痛点与进阶建议**
-
-🖥️ 图形显示 (GUI) 穿透
-Docker 容器默认处于无头（Headless）状态，不支持直接的图形化输出。
-
-Mac 用户需要额外安装 XQuartz，并在启动容器时配置 DISPLAY 环境变量进行 X11 转发。
-
-建议将容器纯粹作为编译和后端逻辑的开发环境，将 GUI 前端运行在宿主机上，或采用远端 Web 仪表盘进行可视化控制。
 
 希望这篇指南能帮助您快速扫清 OpenClaw 容器化部署的障碍！如果您在配置过程中遇到任何网络转发或依赖安装的疑难杂症，欢迎进一步交流。
