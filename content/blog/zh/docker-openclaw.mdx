@@ -87,7 +87,7 @@ curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 apt-get install -y nodejs
 ```
 
-## 4. OpenClaw 部署与网关配置
+## 4. OpenClaw 部署
 
 **安装与初始化**
 在这一步我们完成openclaw的配置
@@ -98,6 +98,7 @@ openclaw onboard
 ```
 
 在配置openclaw的过程中，我们需要依次按照Openclaw的安装指引进行一系列的操作。在这里，作者使用了KiMi模型作为对话的基础，使用Discord作为外接的应用程序。如需其他程序的教程，可能会在后续补充。
+
 ```Markdown
 ◇  I understand this is personal-by-default and shared/multi-user use requires lock-down. Continue?
 │  Yes
@@ -272,6 +273,8 @@ Sessions OK: ~/.openclaw/agents/main/sessions
 │  Skip for now
 
 ```
+
+## 6. 网关配置
 
 关键：解决网络与网关链接问题
 如果您在启动时遇到 Health check failed: gateway closed 错误，这通常是因为默认的 loopback (localhost) 绑定无法在 Docker 的桥接网络模式下被外部正常访问。
