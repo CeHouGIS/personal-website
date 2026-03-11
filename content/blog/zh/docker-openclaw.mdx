@@ -1,0 +1,115 @@
+---
+title: "在 Docker 环境下高效配置 OpenClaw 开发环境"
+date: "2025-10-28"
+summary: "本文以 Y Combinator 2025 年秋季创业方向为背景，深入探讨了 AI 原生企业软件系统的雏形及其对企业各环节的深远影响。从产品、研发、运营到行政和战略，AI 如何成为新一代企业操作系统，最终推动企业管理理念和效率的变革。"
+---
+
+在复杂的开发任务中，使用 Docker 容器化 OpenClaw 能够极大地减少环境污染和依赖冲突。本文将记录从基础镜像构建到容器内编译、再到网关配置的全过程。
+
+1. 准备 Dockerfile
+首先，我们需要定义一个包含基础工具链的镜像。建议在宿主机创建目录 ~/Desktop/openclaw_env，并在该目录下新建 Dockerfile。
+
+Dockerfile
+# 1. 使用你习惯的基础镜像（如 ubuntu:22.04）
+FROM openclaw-env
+
+# 2. 设置环境变量（避免交互式安装时卡住）
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 3. 设置容器内的工作目录
+WORKDIR /app
+
+# 4. 安装必要的系统扩展包
+RUN apt-get update && apt-get install -y \
+    git \
+    vim \
+    curl \
+    build-essential \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# 5. 安装 Python 相关依赖库
+RUN pip install --no-cache-dir \
+    numpy \
+    requests \
+    && echo "Extensions installed successfully."
+
+# 6. 默认启动 bash 终端
+CMD ["/bin/bash"]
+2. 构建与运行容器
+构建镜像
+进入你的工作目录并构建镜像：
+
+Bash
+cd ~/Desktop/openclaw_env
+docker build -t openclaw-env .
+创建并启动容器
+通过 -v 参数将宿主机的开发目录挂载到容器内，实现代码同步：
+
+Bash
+docker run -itd --name openclaw -v ~/Desktop/openclaw_env:/app openclaw-env
+
+# 进入容器内部
+docker exec -it openclaw /bin/bash
+3. 容器内环境深度配置
+进入容器后，我们需要手动安装 OpenClaw 的编译依赖和 Node.js 环境。
+
+编译依赖安装
+Bash
+apt-get update
+apt-get install -y cmake build-essential libsdl2-dev libglew-dev git
+安装 Node.js 22 (含 npm)
+如果你的项目需要 npm，请按照以下步骤安装最新的 LTS 版本：
+
+Bash
+# 获取并执行 Node.js 22 官方脚本
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+apt-get install -y nodejs
+编译 OpenClaw
+Bash
+mkdir build && cd build
+cmake ..
+make
+4. OpenClaw 部署与网关配置
+安装与初始化
+Bash
+npm i -g openclaw@latest
+openclaw onboard
+关键：解决网络与网关链接问题
+如果你在启动时遇到 Health check failed: gateway closed 错误，说明默认的 loopback 绑定无法在 Docker 网络环境下正常工作。
+
+修改配置文件：
+
+Bash
+cd /root/.openclaw/
+# 修改 openclaw.json 中的 gateway 字段
+# 将 "bind": "local" 改为 "bind": "lan"
+手动启动网关：
+
+Bash
+openclaw gateway --port 18789 --bind lan
+注意：如果系统提示 OpenClaw: access not configured，请记录屏幕上的 Pairing code，并联系 Bot 管理员进行授权。
+
+5. 常见痛点与进阶建议
+🖥️ 图形显示 (GUI)
+Docker 容器默认不支持图形化输出。
+
+Mac 用户：需安装 XQuartz 并配置环境变量 DISPLAY。
+
+建议：在容器内完成编译和逻辑开发，将 GUI 运行放在宿主机，或使用远端 Web 仪表盘控制。
+
+🚀 性能与架构 (Apple Silicon)
+如果你使用的是 M1/M2/M3 芯片：
+
+Docker 默认使用 linux/arm64。
+
+如果某些依赖库仅支持 x86，请在 build 或 run 时添加 --platform linux/amd64 参数，但需注意这会带来一定的性能损耗。
+
+🔑 配置参考
+Kimi Key: sk-9vF...JZisR
+
+Discord Server ID: 1480702678332997833
+
+希望这篇博文能帮你快速搞定 OpenClaw 的环境搭建！如果配置过程中遇到其他问题，欢迎在评论区交流。
+
+💡 下一步操作：你可以尝试将上述所有 apt-get 步骤整合进 Dockerfile，实现真正的“一键启动”。需要我帮你优化最终版的 Dockerfile 吗？
