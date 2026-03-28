@@ -12,9 +12,19 @@
         "content": "🌉 I successfully arrived at the University of California, Berkeley (UC Berkeley), officially beginning my visiting journey. I look forward to embarking on a fulfilling and exciting research adventure here!"
       },
       {
+        "date": "2026.02",
+        "title": "New preprint on VLM-Human Preference Alignment",
+        "content": "📄 A new co-authored preprint titled 'UrbanAlign: Post-hoc Semantic Calibration for VLM-Human Preference Alignment' is available on arXiv."
+      },
+      {
         "date": "2026.01",
         "title": "I was elected as CPGIS BOD Student Member!",
         "content": "🗳️ Honored to be elected as a Student Member of the Board of Directors (BOD) for CPGIS. Thank you to everyone who has supported me. Looking forward to serving the global GIS community!"
+      },
+      {
+        "date": "2026.01",
+        "title": "Received Overseas Research Award",
+        "content": "🏆 Honored to receive the Overseas Research Award from the Hong Kong University of Science and Technology."
       },
       {
         "date": "2025.12",
@@ -25,6 +35,41 @@
         "date": "2025.12",
         "title": "I got a visiting student position at UC Berkeley!",
         "content": "🎉 I got a visiting student position at UC Berkeley!"
+      },
+      {
+        "date": "2025.09",
+        "title": "A new paper published in ISPRS Journal of Photogrammetry and Remote Sensing",
+        "content": "📘 Got a paper published as co-author in the ISPRS Journal of Photogrammetry and Remote Sensing focusing on multi-source geo-localization in urban built environments by contrastive learning."
+      },
+      {
+        "date": "2025.05",
+        "title": "New paper accepted in The Innovation",
+        "content": "📘 Our comprehensive review paper 'Urban Sensing in the Era of Large Language Models' was published in The Innovation."
+      },
+      {
+        "date": "2025.03",
+        "title": "Invited Talk at China University of Geosciences",
+        "content": "🎤 Gave an invited talk at the School of Public Administration, China University of Geosciences (Wuhan)."
+      },
+      {
+        "date": "2024.10",
+        "title": "A new paper published in Annals of the American Association of Geographers",
+        "content": "📘 Our research ''Transferred bias' uncovers the balance between the development of physical and socio-economic environments of cities' was published in the Annals of the American Association of Geographers."
+      },
+      {
+        "date": "2024.08",
+        "title": "Best Poster Award at Urban Science Summit",
+        "content": "🏆 Won the Best Poster Award at the 2nd Research Summit of Urban Science and Human Dynamics."
+      },
+      {
+        "date": "2024.02",
+        "title": "Began Visiting PhD Journey at Peking University",
+        "content": "🏫 Started an exciting new chapter as a visiting PhD student at Peking University, supervised by Prof. Fan Zhang, Prof. Lei Dong, and Prof. Yu Liu."
+      },
+      {
+        "date": "2023.02",
+        "title": "Started my PhD at HKUST",
+        "content": "🎓 Officially began my Doctor of Philosophy (PhD) in Civil Engineering at the Hong Kong University of Science and Technology. [cite: 3, 4, 6]"
       }
     ]
   },
