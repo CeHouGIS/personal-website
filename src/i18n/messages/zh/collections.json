@@ -3,23 +3,73 @@
     "items": [
       {
         "date": "2026.03",
-        "title": "抵达加州大学伯克利分校，开启访问生涯！",
-        "content": "🌉 我顺利来到加州大学伯克利分校（UC Berkeley），正式开始我的访问生涯。期待在这里开启一段充实而精彩的科研旅程！"
+        "title": "在Transactions in Urban Data, Science, and Technology上发表新论文",
+        "content": "📘 以第一作者身份在Transactions in Urban Data, Science, and Technology期刊上发表了一篇论文。"
+      },
+      {
+        "date": "2026.03",
+        "title": "抵达加州大学伯克利分校，开启访学之旅！",
+        "content": "🌉 我已顺利抵达加州大学伯克利分校（UC Berkeley），正式开启我的访学之旅。期待在这里展开充实而激动人心的研究探索！"
+      },
+      {
+        "date": "2026.02",
+        "title": "关于视觉语言模型与人类偏好对齐（VLM-Human Preference Alignment）的新预印本",
+        "content": "📄 一篇题为'UrbanAlign: Post-hoc Semantic Calibration for VLM-Human Preference Alignment'的合作预印本论文已在arXiv上发布。"
       },
       {
         "date": "2026.01",
-        "title": "当选 CPGIS 理事会学生理事！",
-        "content": "🗳️ 荣幸当选华人地理信息科学协会 (CPGIS) 理事会学生理事。感谢所有支持我的老师，同学，朋友以及同行，期待在未来任期内为全球 GIS 社区提供更多服务与支持！"
+        "title": "当选为CPGIS理事会学生委员！",
+        "content": "🗳️ 很荣幸当选为海外华人地理信息科学协会（CPGIS）理事会（BOD）学生委员。感谢所有支持我的人。期待为全球GIS社区服务！"
+      },
+      {
+        "date": "2026.01",
+        "title": "荣获海外研究奖（Overseas Research Award）",
+        "content": "🏆 很荣幸获得香港科技大学颁发的海外研究奖。"
       },
       {
         "date": "2025.12",
-        "title": "新论文在 npj Urban Sustainability 发表",
-        "content": "📘 作为共同作者的一篇论文已被 npj Urban Sustainability 录用。"
+        "title": "在npj Urban Sustainability上发表新论文",
+        "content": "📘 作为共同作者的一篇论文被npj Urban Sustainability接收。"
       },
       {
         "date": "2025.12",
-        "title": "我获得了加州大学伯克利分校（UC Berkeley）的访问学生席位！",
-        "content": "🎉 拿到了加州大学伯克利分校的访问学生录取通知！将于2026年3月开始开始访问。"
+        "title": "获得加州大学伯克利分校的访问学生职位！",
+        "content": "🎉 我获得了加州大学伯克利分校的访问学生职位！"
+      },
+      {
+        "date": "2025.09",
+        "title": "在ISPRS Journal of Photogrammetry and Remote Sensing上发表新论文",
+        "content": "📘 作为共同作者在ISPRS Journal of Photogrammetry and Remote Sensing上发表了一篇论文，主要研究通过对比学习在城市建筑环境中进行多源地理定位。"
+      },
+      {
+        "date": "2025.05",
+        "title": "新论文被The Innovation接收",
+        "content": "📘 我们的综合性综述论文'Urban Sensing in the Era of Large Language Models'发表在了The Innovation期刊上。"
+      },
+      {
+        "date": "2025.03",
+        "title": "受邀在中国地质大学进行学术演讲",
+        "content": "🎤 受邀在中国地质大学（武汉）公共管理学院进行了一场学术演讲。"
+      },
+      {
+        "date": "2024.10",
+        "title": "在Annals of the American Association of Geographers上发表新论文",
+        "content": "📘 我们的研究论文“'Transferred bias' uncovers the balance between the development of physical and socio-economic environments of cities”发表在了Annals of the American Association of Geographers期刊上。"
+      },
+      {
+        "date": "2024.08",
+        "title": "荣获城市科学峰会最佳海报奖",
+        "content": "🏆 在第二届城市科学与人类动力学研究峰会上荣获最佳海报奖。"
+      },
+      {
+        "date": "2024.02",
+        "title": "开启北京大学的博士访学之旅",
+        "content": "🏫 作为访问博士生在北京大学开启了激动人心的新篇章，由张帆教授、董磊教授和刘瑜教授共同指导。"
+      },
+      {
+        "date": "2023.02",
+        "title": "在香港科技大学开始博士学业",
+        "content": "🎓 正式开始在香港科技大学（Hong Kong University of Science and Technology）攻读土木工程博士学位（PhD）。"
       }
     ]
   },
