@@ -341,6 +341,13 @@
   "invitedTalks": {
     "items": [
       {
+        "host": "Center for the Built Environment, University of California, Berkeley",
+        "url": "",
+        "date": "Apr. 2026",
+        "title": "Street View Imagery as a Lens for Sensing Buildings",
+        "logoUrl": "/icon/berkeley.png"
+      },
+      {
         "host": "GISense Lab at the University of Texas at Austin",
         "url": "",
         "date": "Mar. 2026",

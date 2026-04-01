@@ -341,6 +341,13 @@
   "invitedTalks": {
     "items": [
       {
+        "host": "加州大学伯克利分校建筑环境中心",
+        "url": "",
+        "date": "Apr. 2026",
+        "title": "Street View Imagery as a Lens for Sensing Buildings",
+        "logoUrl": "/icon/berkeley.png"
+      },
+      {
         "host": "德克萨斯大学奥斯汀分校GISense实验室",
         "url": "",
         "date": "2026年3月",
