@@ -340,13 +340,6 @@
   },
   "invitedTalks": {
     "items": [
-            {
-        "host": "Center for the Built Environment, University of California, Berkeley",
-        "url": "",
-        "date": "Apr. 2026",
-        "title": "Street View Imagery as a Lens for Sensing Buildings",
-        "logoUrl": "/icon/ucb.png"
-      },
       {
         "host": "China University of Geosciences (Wuhan)",
         "url": "https://mp.weixin.qq.com/s/XLwo_BupujmXo_n--Nk_Pw",
@@ -360,6 +353,13 @@
         "date": "Mar. 2026",
         "title": "Leveraging GeoAI and LLM for sensing the sustainable urban development",
         "logoUrl": "/icon/utaustin_logo.png"
+      },
+      {
+        "host": "Center for the Built Environment, University of California, Berkeley",
+        "url": "",
+        "date": "Apr. 2026",
+        "title": "Street View Imagery as a Lens for Sensing Buildings",
+        "logoUrl": "/icon/ucb.png"
       }
     ]
   },
