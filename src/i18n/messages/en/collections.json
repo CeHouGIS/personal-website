@@ -341,6 +341,13 @@
   "invitedTalks": {
     "items": [
       {
+        "host": "China University of Geosciences (Wuhan)",
+        "url": "https://mp.weixin.qq.com/s/XLwo_BupujmXo_n--Nk_Pw",
+        "date": "Mar. 2025",
+        "title": "Transferred bias uncovers the balance between the development of physical and socio-economic environments of cities ",
+        "logoUrl": "/icon/cugwuhan.png"
+      },
+      {
         "host": "Center for the Built Environment, University of California, Berkeley",
         "url": "",
         "date": "Apr. 2026",
@@ -353,13 +360,6 @@
         "date": "Mar. 2026",
         "title": "Leveraging GeoAI and LLM for sensing the sustainable urban development",
         "logoUrl": "/icon/utaustin_logo.png"
-      },
-      {
-        "host": "China University of Geosciences (Wuhan)",
-        "url": "https://mp.weixin.qq.com/s/XLwo_BupujmXo_n--Nk_Pw",
-        "date": "Mar. 2025",
-        "title": "Transferred bias uncovers the balance between the development of physical and socio-economic environments of cities ",
-        "logoUrl": "/icon/cugwuhan.png"
       }
     ]
   },
