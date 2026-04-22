@@ -51,6 +51,7 @@ export default function Navbar({
       home: Icons.home,
       notebook: Icons.notebook,
       fileuser: Icons.fileuser,
+      globe: Icons.globe,
     };
     return iconMap[iconName] || Icons.home;
   };

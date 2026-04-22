@@ -1,0 +1,104 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [114.177, 22.302] },
+      "properties": {
+        "name": "Hong Kong",
+        "date": "2024",
+        "description": "HKUST, Clear Water Bay — PhD studies.",
+        "emoji": "🇭🇰",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [116.404, 39.915] },
+      "properties": {
+        "name": "Beijing",
+        "date": "2023",
+        "description": "Peking University, Haidian District — research visit.",
+        "emoji": "🇨🇳",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [139.691, 35.689] },
+      "properties": {
+        "name": "Tokyo",
+        "date": "2023",
+        "description": "Conference and exploration of the city.",
+        "emoji": "🇯🇵",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [103.820, 1.352] },
+      "properties": {
+        "name": "Singapore",
+        "date": "2024",
+        "description": "International research conference.",
+        "emoji": "🇸🇬",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-0.127, 51.507] },
+      "properties": {
+        "name": "London",
+        "date": "2024",
+        "description": "Academic exchange and sightseeing.",
+        "emoji": "🇬🇧",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.177, 22.302],
+          [116.404, 39.915]
+        ]
+      },
+      "properties": { "name": "Hong Kong → Beijing", "type": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.177, 22.302],
+          [139.691, 35.689]
+        ]
+      },
+      "properties": { "name": "Hong Kong → Tokyo", "type": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.177, 22.302],
+          [103.820, 1.352]
+        ]
+      },
+      "properties": { "name": "Hong Kong → Singapore", "type": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.177, 22.302],
+          [-0.127, 51.507]
+        ]
+      },
+      "properties": { "name": "Hong Kong → London", "type": "route" }
+    }
+  ]
+}

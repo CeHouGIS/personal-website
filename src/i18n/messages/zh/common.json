@@ -48,6 +48,11 @@
                 "label": "博客"
             },
             {
+                "href": "/travel",
+                "icon": "globe",
+                "label": "旅行"
+            },
+            {
                 "href": "/CV.pdf",
                 "icon": "fileuser",
                 "label": "简历"
@@ -55,6 +60,11 @@
         ],
         "theme": "主题",
         "language": "语言"
+    },
+    "travel": {
+        "title": "旅行",
+        "description": "我的环球旅程——学术会议、探索之旅与冒险经历。",
+        "mapHint": "点击地图标记探索我到访过的地方。设置 NEXT_PUBLIC_PMTILES_URL 可使用自定义 Protomaps 底图。"
     },
     "blog": {
         "title": "博客",

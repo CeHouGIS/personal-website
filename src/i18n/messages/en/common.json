@@ -49,6 +49,11 @@
                 "label": "Blog"
             },
             {
+                "href": "/travel",
+                "icon": "globe",
+                "label": "Travel"
+            },
+            {
                 "href": "/resume.pdf",
                 "icon": "fileuser",
                 "label": "CV"
@@ -56,6 +61,11 @@
         ],
         "theme": "Theme",
         "language": "Language"
+    },
+    "travel": {
+        "title": "Travel",
+        "description": "My journeys across the globe — conferences, explorations, and adventures.",
+        "mapHint": "Click on markers to explore visited places. Set NEXT_PUBLIC_PMTILES_URL to use your own Protomaps basemap."
     },
     "blog": {
         "title": "Blog",
