@@ -3,102 +3,146 @@
   "features": [
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [114.177, 22.302] },
+      "geometry": { "type": "Point", "coordinates": [114.367, 30.538] },
       "properties": {
-        "name": "Hong Kong",
-        "date": "2024",
-        "description": "HKUST, Clear Water Bay — PhD studies.",
-        "emoji": "🇭🇰",
-        "photo": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [116.404, 39.915] },
-      "properties": {
-        "name": "Beijing",
-        "date": "2023",
-        "description": "Peking University, Haidian District — research visit.",
+        "name": "Wuhan",
+        "date": "2017–2021",
+        "description": "Wuhan University — B.Eng. in Geodesy and Geomatics Engineering. Where it all began.",
         "emoji": "🇨🇳",
         "photo": null
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [139.691, 35.689] },
-      "properties": {
-        "name": "Tokyo",
-        "date": "2023",
-        "description": "Conference and exploration of the city.",
-        "emoji": "🇯🇵",
-        "photo": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [103.820, 1.352] },
-      "properties": {
-        "name": "Singapore",
-        "date": "2024",
-        "description": "International research conference.",
-        "emoji": "🇸🇬",
-        "photo": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-0.127, 51.507] },
+      "geometry": { "type": "Point", "coordinates": [-0.134, 51.524] },
       "properties": {
         "name": "London",
-        "date": "2024",
-        "description": "Academic exchange and sightseeing.",
+        "date": "2021–2022",
+        "description": "University College London — MSc in Spatial Data Science and Visualization. Later research assistant at The Bartlett School of Sustainable Construction.",
         "emoji": "🇬🇧",
         "photo": null
       }
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [114.177, 22.302],
-          [116.404, 39.915]
-        ]
-      },
-      "properties": { "name": "Hong Kong → Beijing", "type": "route" }
+      "geometry": { "type": "Point", "coordinates": [116.326, 39.999] },
+      "properties": {
+        "name": "Beijing",
+        "date": "2022 / 2024–present",
+        "description": "Research assistant at Tsinghua University (2022), then joint PhD student at Peking University (2024–present).",
+        "emoji": "🇨🇳",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [114.264, 22.337] },
+      "properties": {
+        "name": "Hong Kong",
+        "date": "2023–present",
+        "description": "HKUST, Clear Water Bay — PhD in Civil Engineering, advised by Prof. Sen Li.",
+        "emoji": "🇭🇰",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-157.858, 21.315] },
+      "properties": {
+        "name": "Honolulu",
+        "date": "Apr 2024",
+        "description": "AAG Annual Meeting in Hawaii.",
+        "emoji": "🌺",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-122.258, 37.872] },
+      "properties": {
+        "name": "Berkeley",
+        "date": "2025",
+        "description": "Visiting PhD student at UC Berkeley, advised by Prof. Lu Liang. Invited talk at the Center for the Built Environment.",
+        "emoji": "🇺🇸",
+        "photo": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [115.188, -8.410] },
+      "properties": {
+        "name": "Bali",
+        "date": "Aug 2025",
+        "description": "Academic conference in Bali, Indonesia.",
+        "emoji": "🇮🇩",
+        "photo": null
+      }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [114.177, 22.302],
-          [139.691, 35.689]
+          [114.367, 30.538],
+          [-0.134, 51.524]
         ]
       },
-      "properties": { "name": "Hong Kong → Tokyo", "type": "route" }
+      "properties": { "name": "Wuhan → London", "type": "route" }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [114.177, 22.302],
-          [103.820, 1.352]
+          [-0.134, 51.524],
+          [116.326, 39.999]
         ]
       },
-      "properties": { "name": "Hong Kong → Singapore", "type": "route" }
+      "properties": { "name": "London → Beijing", "type": "route" }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [114.177, 22.302],
-          [-0.127, 51.507]
+          [116.326, 39.999],
+          [114.264, 22.337]
         ]
       },
-      "properties": { "name": "Hong Kong → London", "type": "route" }
+      "properties": { "name": "Beijing → Hong Kong", "type": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.264, 22.337],
+          [-157.858, 21.315]
+        ]
+      },
+      "properties": { "name": "Hong Kong → Honolulu (AAG 2024)", "type": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-157.858, 21.315],
+          [-122.258, 37.872]
+        ]
+      },
+      "properties": { "name": "Honolulu → Berkeley", "type": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-122.258, 37.872],
+          [115.188, -8.410]
+        ]
+      },
+      "properties": { "name": "Berkeley → Bali", "type": "route" }
     }
   ]
 }
