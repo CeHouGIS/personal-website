@@ -4,8 +4,7 @@ import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
-const TRACK_URL = "/audio/travel.mp3";
-const TRACK_TITLE = "Travel";
+import { TRACKS } from "./tracks";
 
 export function MusicPlayer() {
   const t = useTranslations("travel.musicPlayer");
@@ -14,7 +13,10 @@ export function MusicPlayer() {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [muted, setMuted] = useState(false);
-  const [available, setAvailable] = useState(true);
+  const [available, setAvailable] = useState(TRACKS.length > 0);
+
+  const track = TRACKS[0];
+  const trackSrc = track ? encodeURI(track.src) : undefined;
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -72,8 +74,10 @@ export function MusicPlayer() {
 
   return (
     <div className="rounded-xl border bg-card">
-      <audio ref={audioRef} src={TRACK_URL} preload="metadata" />
-      {available ? (
+      {trackSrc && (
+        <audio ref={audioRef} src={trackSrc} preload="metadata" />
+      )}
+      {available && track ? (
         <div className="flex items-center gap-3 px-3 py-2.5">
           <button
             type="button"
@@ -87,8 +91,13 @@ export function MusicPlayer() {
               <Play className="size-4 translate-x-px" />
             )}
           </button>
-          <div className="hidden min-w-0 flex-shrink-0 sm:block">
-            <p className="truncate text-xs font-medium">{TRACK_TITLE}</p>
+          <div className="hidden min-w-0 max-w-[160px] flex-shrink-0 sm:block">
+            <p className="truncate text-xs font-medium">{track.title}</p>
+            {track.artist && (
+              <p className="text-muted-foreground truncate text-[10px]">
+                {track.artist}
+              </p>
+            )}
           </div>
           <span className="text-muted-foreground w-10 text-center text-xs tabular-nums">
             {fmtTime(progress)}

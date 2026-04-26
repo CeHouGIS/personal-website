@@ -97,11 +97,16 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-157.858, 21.315],
-          [-122.258, 37.872]
+          [-122.2972, 37.8886],
+          [-122.1701, 37.4277],
+          [-122.4286, 37.4636],
+          [-122.3772, 37.1956],
+          [-122.0288, 36.9741],
+          [-122.2510, 37.1666],
+          [-122.1701, 37.4277]
         ]
       },
-      "properties": { "name": "Monterey Journal", "year": 2025, "kind": "trajectory" }
+      "properties": { "name": "Bay Area road trip", "type": "route" }
     }
   ]
 }
