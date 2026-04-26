@@ -6,10 +6,12 @@
       "geometry": { "type": "Point", "coordinates": [114.367, 30.538] },
       "properties": {
         "name": "Wuhan",
+        "year": 2017,
         "date": "2017–2021",
         "description": "Wuhan University — B.Eng. in Geodesy and Geomatics Engineering. Where it all began.",
         "emoji": "🇨🇳",
-        "photo": null
+        "photo": null,
+        "kind": "place"
       }
     },
     {
@@ -17,10 +19,12 @@
       "geometry": { "type": "Point", "coordinates": [-0.134, 51.524] },
       "properties": {
         "name": "London",
+        "year": 2021,
         "date": "2021–2022",
         "description": "University College London — MSc in Spatial Data Science and Visualization. Later research assistant at The Bartlett School of Sustainable Construction.",
         "emoji": "🇬🇧",
-        "photo": null
+        "photo": null,
+        "kind": "place"
       }
     },
     {
@@ -28,10 +32,12 @@
       "geometry": { "type": "Point", "coordinates": [116.326, 39.999] },
       "properties": {
         "name": "Beijing",
+        "year": 2022,
         "date": "2022 / 2024–present",
         "description": "Research assistant at Tsinghua University (2022), then joint PhD student at Peking University (2024–present).",
         "emoji": "🇨🇳",
-        "photo": null
+        "photo": null,
+        "kind": "place"
       }
     },
     {
@@ -39,10 +45,12 @@
       "geometry": { "type": "Point", "coordinates": [114.264, 22.337] },
       "properties": {
         "name": "Hong Kong",
+        "year": 2023,
         "date": "2023–present",
         "description": "HKUST, Clear Water Bay — PhD in Civil Engineering, advised by Prof. Sen Li.",
         "emoji": "🇭🇰",
-        "photo": null
+        "photo": null,
+        "kind": "place"
       }
     },
     {
@@ -50,10 +58,12 @@
       "geometry": { "type": "Point", "coordinates": [-157.858, 21.315] },
       "properties": {
         "name": "Honolulu",
+        "year": 2024,
         "date": "Apr 2024",
         "description": "AAG Annual Meeting in Hawaii.",
         "emoji": "🌺",
-        "photo": null
+        "photo": null,
+        "kind": "place"
       }
     },
     {
@@ -61,10 +71,12 @@
       "geometry": { "type": "Point", "coordinates": [-122.258, 37.872] },
       "properties": {
         "name": "Berkeley",
+        "year": 2025,
         "date": "2025",
         "description": "Visiting PhD student at UC Berkeley, advised by Prof. Lu Liang. Invited talk at the Center for the Built Environment.",
         "emoji": "🇺🇸",
-        "photo": null
+        "photo": null,
+        "kind": "place"
       }
     },
     {
@@ -72,10 +84,12 @@
       "geometry": { "type": "Point", "coordinates": [115.188, -8.410] },
       "properties": {
         "name": "Bali",
+        "year": 2025,
         "date": "Aug 2025",
         "description": "Academic conference in Bali, Indonesia.",
         "emoji": "🇮🇩",
-        "photo": null
+        "photo": null,
+        "kind": "place"
       }
     },
     {
@@ -87,7 +101,7 @@
           [-0.134, 51.524]
         ]
       },
-      "properties": { "name": "Wuhan → London", "type": "route" }
+      "properties": { "name": "Wuhan → London", "year": 2021, "kind": "trajectory" }
     },
     {
       "type": "Feature",
@@ -98,7 +112,7 @@
           [116.326, 39.999]
         ]
       },
-      "properties": { "name": "London → Beijing", "type": "route" }
+      "properties": { "name": "London → Beijing", "year": 2022, "kind": "trajectory" }
     },
     {
       "type": "Feature",
@@ -109,7 +123,7 @@
           [114.264, 22.337]
         ]
       },
-      "properties": { "name": "Beijing → Hong Kong", "type": "route" }
+      "properties": { "name": "Beijing → Hong Kong", "year": 2023, "kind": "trajectory" }
     },
     {
       "type": "Feature",
@@ -120,7 +134,7 @@
           [-157.858, 21.315]
         ]
       },
-      "properties": { "name": "Hong Kong → Honolulu (AAG 2024)", "type": "route" }
+      "properties": { "name": "Hong Kong → Honolulu (AAG 2024)", "year": 2024, "kind": "trajectory" }
     },
     {
       "type": "Feature",
@@ -131,7 +145,7 @@
           [-122.258, 37.872]
         ]
       },
-      "properties": { "name": "Honolulu → Berkeley", "type": "route" }
+      "properties": { "name": "Honolulu → Berkeley", "year": 2025, "kind": "trajectory" }
     },
     {
       "type": "Feature",
@@ -142,7 +156,7 @@
           [115.188, -8.410]
         ]
       },
-      "properties": { "name": "Berkeley → Bali", "type": "route" }
+      "properties": { "name": "Berkeley → Bali", "year": 2025, "kind": "trajectory" }
     }
   ]
 }

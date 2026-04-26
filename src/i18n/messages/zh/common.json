@@ -64,7 +64,15 @@
     "travel": {
         "title": "旅行",
         "description": "我的环球旅程——学术会议、探索之旅与冒险经历。",
-        "mapHint": "点击地图标记探索我到访过的地方。设置 NEXT_PUBLIC_PMTILES_URL 可使用自定义 Protomaps 底图。"
+        "mapHint": "点击地图标记探索我到访过的地方。设置 NEXT_PUBLIC_PMTILES_URL 可使用自定义 Protomaps 底图。",
+        "timeline": "时间线",
+        "loading": "加载中…",
+        "musicPlayer": {
+            "play": "播放",
+            "pause": "暂停",
+            "mute": "静音 / 取消静音",
+            "noTrack": "在 public/audio/travel.mp3 添加音频文件以启用播放器。"
+        }
     },
     "blog": {
         "title": "博客",

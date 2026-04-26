@@ -2,23 +2,46 @@
 
 import maplibregl from "maplibre-gl";
 import { Protocol } from "pmtiles";
-import { useEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 
 import "maplibre-gl/dist/maplibre-gl.css";
 
+import { FALLBACK_COLOR, YEAR_COLORS } from "./year-colors";
+
 interface TripProperties {
   name: string;
+  year?: number;
   date?: string;
   description?: string;
   emoji?: string;
   photo?: string;
-  type?: string;
+  kind?: "place" | "trajectory";
 }
 
-// OpenFreeMap: free vector tiles, no API key required — used as the default basemap.
-// Set NEXT_PUBLIC_PMTILES_URL (e.g. pmtiles://https://your-r2-bucket.r2.dev/basemap.pmtiles)
-// to switch to a self-hosted Protomaps basemap.
+export interface TravelMapHandle {
+  flyTo: (coords: [number, number], zoom?: number) => void;
+}
+
+interface TravelMapProps {
+  data: GeoJSON.FeatureCollection | null;
+}
+
 const OPENFREEMAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
+
+function buildYearColorExpression(): maplibregl.ExpressionSpecification {
+  const expr: unknown[] = ["match", ["get", "year"]];
+  for (const [year, color] of Object.entries(YEAR_COLORS)) {
+    expr.push(Number(year), color);
+  }
+  expr.push(FALLBACK_COLOR);
+  return expr as maplibregl.ExpressionSpecification;
+}
 
 function buildPmtilesStyle(url: string): maplibregl.StyleSpecification {
   return {
@@ -56,14 +79,6 @@ function buildPmtilesStyle(url: string): maplibregl.StyleSpecification {
         paint: { "fill-color": "#a8c8e0" },
       },
       {
-        id: "landuse_park",
-        type: "fill",
-        source: "protomaps",
-        "source-layer": "landuse",
-        filter: ["==", ["get", "pmap:kind"], "park"] as maplibregl.ExpressionSpecification,
-        paint: { "fill-color": "#c8ddb8", "fill-opacity": 0.6 },
-      },
-      {
         id: "roads",
         type: "line",
         source: "protomaps",
@@ -82,14 +97,6 @@ function buildPmtilesStyle(url: string): maplibregl.StyleSpecification {
         },
       },
       {
-        id: "buildings",
-        type: "fill",
-        source: "protomaps",
-        "source-layer": "buildings",
-        minzoom: 14,
-        paint: { "fill-color": "#d4cab8", "fill-opacity": 0.8 },
-      },
-      {
         id: "place_labels",
         type: "symbol",
         source: "protomaps",
@@ -97,17 +104,7 @@ function buildPmtilesStyle(url: string): maplibregl.StyleSpecification {
         layout: {
           "text-field": ["get", "name"] as maplibregl.ExpressionSpecification,
           "text-font": ["Noto Sans Regular"],
-          "text-size": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            3,
-            9,
-            10,
-            14,
-          ] as maplibregl.ExpressionSpecification,
-          "text-max-width": 8,
-          "text-anchor": "center",
+          "text-size": 12,
         },
         paint: {
           "text-color": "#444444",
@@ -119,80 +116,95 @@ function buildPmtilesStyle(url: string): maplibregl.StyleSpecification {
   };
 }
 
-export function TravelMap() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<maplibregl.Map | null>(null);
-  const [selected, setSelected] = useState<TripProperties | null>(null);
+export const TravelMap = forwardRef<TravelMapHandle, TravelMapProps>(
+  function TravelMap({ data }, ref) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const mapRef = useRef<maplibregl.Map | null>(null);
+    const [mapLoaded, setMapLoaded] = useState(false);
+    const [selected, setSelected] = useState<TripProperties | null>(null);
 
-  useEffect(() => {
-    if (!containerRef.current || mapRef.current) return;
+    useImperativeHandle(
+      ref,
+      () => ({
+        flyTo: (coords, zoom = 5) => {
+          mapRef.current?.flyTo({
+            center: coords,
+            zoom,
+            essential: true,
+            duration: 1000,
+          });
+        },
+      }),
+      [],
+    );
 
-    const pmtilesUrl = process.env.NEXT_PUBLIC_PMTILES_URL;
-    let pmProtocol: InstanceType<typeof Protocol> | null = null;
+    useEffect(() => {
+      if (!containerRef.current || mapRef.current) return;
 
-    if (pmtilesUrl) {
-      pmProtocol = new Protocol();
-      try {
-        maplibregl.addProtocol("pmtiles", pmProtocol.tile.bind(pmProtocol));
-      } catch {
-        /* protocol already registered during HMR */
+      const pmtilesUrl = process.env.NEXT_PUBLIC_PMTILES_URL;
+      let pmProtocol: InstanceType<typeof Protocol> | null = null;
+      if (pmtilesUrl) {
+        pmProtocol = new Protocol();
+        try {
+          maplibregl.addProtocol("pmtiles", pmProtocol.tile.bind(pmProtocol));
+        } catch {
+          /* already registered */
+        }
       }
-    }
 
-    const map = new maplibregl.Map({
-      container: containerRef.current,
-      style: pmtilesUrl ? buildPmtilesStyle(pmtilesUrl) : OPENFREEMAP_STYLE,
-      center: [105, 28],
-      zoom: 2.8,
-      attributionControl: { compact: true },
-    });
+      const map = new maplibregl.Map({
+        container: containerRef.current,
+        style: pmtilesUrl ? buildPmtilesStyle(pmtilesUrl) : OPENFREEMAP_STYLE,
+        center: [60, 25],
+        zoom: 1.5,
+        attributionControl: { compact: true },
+      });
 
-    mapRef.current = map;
-    map.addControl(new maplibregl.NavigationControl(), "top-right");
-    map.addControl(new maplibregl.FullscreenControl(), "top-right");
+      mapRef.current = map;
+      map.addControl(new maplibregl.NavigationControl(), "top-right");
+      map.addControl(new maplibregl.FullscreenControl(), "top-right");
 
-    map.on("load", async () => {
-      try {
-        const res = await fetch("/data/trips.geojson");
-        const geojson = (await res.json()) as GeoJSON.FeatureCollection;
+      map.on("load", () => {
+        const colorExpr = buildYearColorExpression();
 
-        map.addSource("trips", { type: "geojson", data: geojson });
+        map.addSource("trips", {
+          type: "geojson",
+          data: { type: "FeatureCollection", features: [] },
+        });
 
-        // Dashed route arcs
+        // Trajectories: year-colored solid lines
         map.addLayer({
           id: "trip-lines",
           type: "line",
           source: "trips",
-          filter: ["==", "$type", "LineString"] as maplibregl.ExpressionSpecification,
+          filter: ["==", "$type", "LineString"] as unknown as maplibregl.ExpressionSpecification,
           paint: {
-            "line-color": "#ef4444",
-            "line-width": 1.5,
-            "line-dasharray": [4, 3],
-            "line-opacity": 0.65,
+            "line-color": colorExpr,
+            "line-width": 2.5,
+            "line-opacity": 0.85,
           },
         });
 
-        // White halo behind markers
+        // Halo behind point markers
         map.addLayer({
           id: "trip-points-halo",
           type: "circle",
           source: "trips",
-          filter: ["==", "$type", "Point"] as maplibregl.ExpressionSpecification,
+          filter: ["==", "$type", "Point"] as unknown as maplibregl.ExpressionSpecification,
           paint: {
             "circle-color": "#ffffff",
             "circle-radius": 9,
-            "circle-opacity": 0.9,
           },
         });
 
-        // Filled markers
+        // Points: year-colored dots
         map.addLayer({
           id: "trip-points",
           type: "circle",
           source: "trips",
-          filter: ["==", "$type", "Point"] as maplibregl.ExpressionSpecification,
+          filter: ["==", "$type", "Point"] as unknown as maplibregl.ExpressionSpecification,
           paint: {
-            "circle-color": "#ef4444",
+            "circle-color": colorExpr,
             "circle-radius": 6,
             "circle-stroke-color": "#ffffff",
             "circle-stroke-width": 2,
@@ -211,10 +223,10 @@ export function TravelMap() {
         });
 
         map.on("click", (e) => {
-          const features = map.queryRenderedFeatures(e.point, {
+          const f = map.queryRenderedFeatures(e.point, {
             layers: ["trip-points"],
           });
-          if (features.length === 0) setSelected(null);
+          if (f.length === 0) setSelected(null);
         });
 
         map.on("mouseenter", "trip-points", () => {
@@ -223,62 +235,73 @@ export function TravelMap() {
         map.on("mouseleave", "trip-points", () => {
           map.getCanvas().style.cursor = "";
         });
-      } catch (err) {
-        console.error("[TravelMap] Failed to load trips data:", err);
-      }
-    });
 
-    return () => {
-      mapRef.current?.remove();
-      mapRef.current = null;
-      if (pmProtocol) {
-        try {
-          maplibregl.removeProtocol("pmtiles");
-        } catch {
-          /* ignore */
+        setMapLoaded(true);
+      });
+
+      return () => {
+        mapRef.current?.remove();
+        mapRef.current = null;
+        setMapLoaded(false);
+        if (pmProtocol) {
+          try {
+            maplibregl.removeProtocol("pmtiles");
+          } catch {
+            /* ignore */
+          }
         }
-      }
-    };
-  }, []);
+      };
+    }, []);
 
-  return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl border">
-      <div ref={containerRef} className="h-full w-full" />
+    // Sync data into the source when either map is ready or data changes
+    useEffect(() => {
+      if (!mapLoaded || !data || !mapRef.current) return;
+      const src = mapRef.current.getSource("trips") as
+        | maplibregl.GeoJSONSource
+        | undefined;
+      src?.setData(data);
+    }, [mapLoaded, data]);
 
-      {selected && (
-        <div className="absolute bottom-4 left-4 z-10 w-72 rounded-xl border bg-background/95 p-4 shadow-xl backdrop-blur-sm">
-          <button
-            className="text-muted-foreground hover:text-foreground absolute right-3 top-3 text-sm leading-none"
-            onClick={() => setSelected(null)}
-            aria-label="Close"
-          >
-            ✕
-          </button>
+    return (
+      <div className="relative h-full w-full overflow-hidden rounded-xl border">
+        <div ref={containerRef} className="h-full w-full" />
 
-          <div className="flex items-center gap-2">
-            {selected.emoji && (
-              <span className="text-xl leading-none">{selected.emoji}</span>
+        {selected && (
+          <div className="absolute bottom-4 left-4 z-10 w-72 rounded-xl border bg-background/95 p-4 shadow-xl backdrop-blur-sm">
+            <button
+              type="button"
+              className="text-muted-foreground hover:text-foreground absolute right-3 top-3 text-sm leading-none"
+              onClick={() => setSelected(null)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <div className="flex items-center gap-2">
+              {selected.emoji && (
+                <span className="text-xl leading-none">{selected.emoji}</span>
+              )}
+              <h3 className="font-semibold">{selected.name}</h3>
+            </div>
+            {selected.date && (
+              <p className="text-muted-foreground mt-0.5 text-xs">
+                {selected.date}
+              </p>
             )}
-            <h3 className="font-semibold">{selected.name}</h3>
+            {selected.photo && (
+              <img
+                src={selected.photo}
+                alt={selected.name}
+                className="mt-2 h-36 w-full rounded-lg object-cover"
+              />
+            )}
+            {selected.description && (
+              <p className="mt-2 text-sm leading-relaxed">
+                {selected.description}
+              </p>
+            )}
           </div>
-
-          {selected.date && (
-            <p className="text-muted-foreground mt-0.5 text-xs">{selected.date}</p>
-          )}
-
-          {selected.photo && (
-            <img
-              src={selected.photo}
-              alt={selected.name}
-              className="mt-2 h-36 w-full rounded-lg object-cover"
-            />
-          )}
-
-          {selected.description && (
-            <p className="mt-2 text-sm leading-relaxed">{selected.description}</p>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
+        )}
+      </div>
+    );
+  },
+);

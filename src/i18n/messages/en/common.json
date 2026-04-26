@@ -65,7 +65,15 @@
     "travel": {
         "title": "Travel",
         "description": "My journeys across the globe — conferences, explorations, and adventures.",
-        "mapHint": "Click on markers to explore visited places. Set NEXT_PUBLIC_PMTILES_URL to use your own Protomaps basemap."
+        "mapHint": "Click on markers to explore visited places. Set NEXT_PUBLIC_PMTILES_URL to use your own Protomaps basemap.",
+        "timeline": "Timeline",
+        "loading": "Loading…",
+        "musicPlayer": {
+            "play": "Play",
+            "pause": "Pause",
+            "mute": "Toggle mute",
+            "noTrack": "Drop an audio file at /public/audio/travel.mp3 to enable the player."
+        }
     },
     "blog": {
         "title": "Blog",
