@@ -172,16 +172,40 @@ export const TravelMap = forwardRef<TravelMapHandle, TravelMapProps>(
           data: { type: "FeatureCollection", features: [] },
         });
 
-        // Trajectories: year-colored solid lines
+        // Flight / default routes — dashed straight line (also used while
+        // OSRM enrichment is pending)
         map.addLayer({
-          id: "trip-lines",
+          id: "trip-lines-flight",
           type: "line",
           source: "trips",
-          filter: ["==", "$type", "LineString"] as unknown as maplibregl.ExpressionSpecification,
+          filter: [
+            "all",
+            ["==", ["geometry-type"], "LineString"],
+            ["!=", ["get", "mode"], "drive"],
+          ] as unknown as maplibregl.ExpressionSpecification,
           paint: {
             "line-color": colorExpr,
-            "line-width": 2.5,
-            "line-opacity": 0.85,
+            "line-width": 2,
+            "line-dasharray": [4, 3],
+            "line-opacity": 0.75,
+          },
+        });
+
+        // Drive routes — solid, slightly thicker; geometry is replaced
+        // with the actual OSRM road path once enrichment completes.
+        map.addLayer({
+          id: "trip-lines-drive",
+          type: "line",
+          source: "trips",
+          filter: [
+            "all",
+            ["==", ["geometry-type"], "LineString"],
+            ["==", ["get", "mode"], "drive"],
+          ] as unknown as maplibregl.ExpressionSpecification,
+          paint: {
+            "line-color": colorExpr,
+            "line-width": 3,
+            "line-opacity": 0.9,
           },
         });
 

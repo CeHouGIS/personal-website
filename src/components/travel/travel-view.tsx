@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { MusicPlayer } from "./music-player";
+import { enrichDriveRoutes } from "./osrm";
 import { TravelMap, type TravelMapHandle } from "./travel-map";
 import { TripSidebar } from "./trip-sidebar";
 
@@ -14,8 +15,12 @@ export function TravelView() {
     let cancelled = false;
     fetch("/data/trips.geojson")
       .then((r) => r.json())
-      .then((d) => {
-        if (!cancelled) setData(d as GeoJSON.FeatureCollection);
+      .then(async (d: GeoJSON.FeatureCollection) => {
+        if (cancelled) return;
+        setData(d); // initial render with straight lines
+        const enriched = await enrichDriveRoutes(d);
+        if (cancelled) return;
+        setData(enriched); // upgrade drive routes with OSRM geometry
       })
       .catch((err) => console.error("[TravelView] failed to load trips:", err));
     return () => {
