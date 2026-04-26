@@ -35,6 +35,14 @@ export function MusicPlayer() {
     audio.addEventListener("error", onError);
     audio.addEventListener("ended", onEnd);
 
+    // Best-effort autoplay. Most browsers block audible autoplay until the
+    // user interacts with the page, in which case the promise rejects and
+    // the player simply stays paused — a click on play resumes normally.
+    audio
+      .play()
+      .then(() => setPlaying(true))
+      .catch(() => setPlaying(false));
+
     return () => {
       audio.removeEventListener("timeupdate", onTime);
       audio.removeEventListener("loadedmetadata", onMeta);
@@ -53,7 +61,7 @@ export function MusicPlayer() {
       audio
         .play()
         .then(() => setPlaying(true))
-        .catch(() => setAvailable(false));
+        .catch(() => setPlaying(false));
     }
   };
 
@@ -75,7 +83,13 @@ export function MusicPlayer() {
   return (
     <div className="rounded-xl border bg-card">
       {trackSrc && (
-        <audio ref={audioRef} src={trackSrc} preload="metadata" />
+        <audio
+          ref={audioRef}
+          src={trackSrc}
+          preload="auto"
+          autoPlay
+          loop
+        />
       )}
       {available && track ? (
         <div className="flex items-center gap-3 px-3 py-2.5">
