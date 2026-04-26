@@ -97,66 +97,11 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [114.367, 30.538],
-          [-0.134, 51.524]
-        ]
-      },
-      "properties": { "name": "Wuhan → London", "year": 2021, "kind": "trajectory" }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [-0.134, 51.524],
-          [116.326, 39.999]
-        ]
-      },
-      "properties": { "name": "London → Beijing", "year": 2022, "kind": "trajectory" }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [116.326, 39.999],
-          [114.264, 22.337]
-        ]
-      },
-      "properties": { "name": "Beijing → Hong Kong", "year": 2023, "kind": "trajectory" }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [114.264, 22.337],
-          [-157.858, 21.315]
-        ]
-      },
-      "properties": { "name": "Hong Kong → Honolulu (AAG 2024)", "year": 2024, "kind": "trajectory" }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
           [-157.858, 21.315],
           [-122.258, 37.872]
         ]
       },
-      "properties": { "name": "Honolulu → Berkeley", "year": 2025, "kind": "trajectory" }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [-122.258, 37.872],
-          [115.188, -8.410]
-        ]
-      },
-      "properties": { "name": "Berkeley → Bali", "year": 2025, "kind": "trajectory" }
+      "properties": { "name": "Monterey Journal", "year": 2025, "kind": "trajectory" }
     }
   ]
 }
