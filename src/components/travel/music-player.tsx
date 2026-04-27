@@ -35,19 +35,37 @@ export function MusicPlayer() {
     audio.addEventListener("error", onError);
     audio.addEventListener("ended", onEnd);
 
-    // Best-effort autoplay. Most browsers block audible autoplay until the
-    // user interacts with the page, in which case the promise rejects and
-    // the player simply stays paused — a click on play resumes normally.
+    // Universal autoplay strategy:
+    //   1. Start muted — bypasses Chrome/Safari/Firefox autoplay restrictions
+    //   2. Auto-unmute on the first user interaction anywhere on the page
+    // This guarantees identical behavior across locales and engagement state.
+    audio.muted = true;
+    setMuted(true);
     audio
       .play()
       .then(() => setPlaying(true))
       .catch(() => setPlaying(false));
+
+    const unmuteOnInteraction = () => {
+      const a = audioRef.current;
+      if (a && a.muted) {
+        a.muted = false;
+        setMuted(false);
+      }
+    };
+    const interactionEvents = ["pointerdown", "keydown", "touchstart"] as const;
+    interactionEvents.forEach((ev) =>
+      document.addEventListener(ev, unmuteOnInteraction, { once: true }),
+    );
 
     return () => {
       audio.removeEventListener("timeupdate", onTime);
       audio.removeEventListener("loadedmetadata", onMeta);
       audio.removeEventListener("error", onError);
       audio.removeEventListener("ended", onEnd);
+      interactionEvents.forEach((ev) =>
+        document.removeEventListener(ev, unmuteOnInteraction),
+      );
     };
   }, []);
 
