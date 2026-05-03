@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { colorForYear } from "./year-colors";
@@ -11,6 +12,15 @@ interface TripProperties {
   description?: string;
   emoji?: string;
   kind?: "place" | "trajectory";
+  photos?: string[];
+}
+
+const R2_BASE = process.env.NEXT_PUBLIC_R2_PUBLIC_BASE ?? "";
+
+function resolvePhotoUrl(src: string): string {
+  if (/^https?:\/\//i.test(src)) return src;
+  if (!R2_BASE) return src;
+  return `${R2_BASE.replace(/\/$/, "")}/${src.replace(/^\//, "")}`;
 }
 
 interface TripSidebarProps {
@@ -64,41 +74,71 @@ export function TripSidebar({ data, onSelect }: TripSidebarProps) {
               {groups.get(year)!.map((f, idx) => {
                 const props = (f.properties ?? {}) as TripProperties;
                 const isPoint = f.geometry.type === "Point";
+                const photos = props.photos ?? [];
                 return (
                   <li key={`${year}-${idx}`}>
-                    <button
-                      type="button"
-                      onClick={() => onSelect(f)}
-                      className="hover:bg-accent group flex w-full items-start gap-2.5 rounded-lg border bg-background px-3 py-2 text-left transition-colors"
-                    >
-                      <span
-                        className="mt-1.5 size-2 shrink-0 rounded-full"
-                        style={{
-                          backgroundColor: colorForYear(props.year),
-                          boxShadow: isPoint ? "none" : "inset 0 0 0 1px white",
-                        }}
-                      />
-                      <span className="min-w-0 flex-1">
-                        <span className="flex items-center gap-1.5">
-                          {props.emoji && (
-                            <span className="text-sm leading-none">
-                              {props.emoji}
+                    <div className="overflow-hidden rounded-lg border bg-background">
+                      <button
+                        type="button"
+                        onClick={() => onSelect(f)}
+                        className="hover:bg-accent group flex w-full items-start gap-2.5 px-3 py-2 text-left transition-colors"
+                      >
+                        <span
+                          className="mt-1.5 size-2 shrink-0 rounded-full"
+                          style={{
+                            backgroundColor: colorForYear(props.year),
+                            boxShadow: isPoint
+                              ? "none"
+                              : "inset 0 0 0 1px white",
+                          }}
+                        />
+                        <span className="min-w-0 flex-1">
+                          <span className="flex items-center gap-1.5">
+                            {props.emoji && (
+                              <span className="text-sm leading-none">
+                                {props.emoji}
+                              </span>
+                            )}
+                            <span className="truncate text-sm font-medium">
+                              {props.name}
+                            </span>
+                          </span>
+                          {props.date && (
+                            <span className="text-muted-foreground mt-0.5 block text-xs">
+                              {props.date}
                             </span>
                           )}
-                          <span className="truncate text-sm font-medium">
-                            {props.name}
+                          <span className="text-muted-foreground/70 mt-0.5 block text-[10px] uppercase tracking-wider">
+                            {isPoint ? "point" : "trajectory"}
                           </span>
                         </span>
-                        {props.date && (
-                          <span className="text-muted-foreground mt-0.5 block text-xs">
-                            {props.date}
-                          </span>
-                        )}
-                        <span className="text-muted-foreground/70 mt-0.5 block text-[10px] uppercase tracking-wider">
-                          {isPoint ? "point" : "trajectory"}
-                        </span>
-                      </span>
-                    </button>
+                      </button>
+                      {photos.length > 0 && (
+                        <div className="flex gap-1.5 overflow-x-auto px-3 pt-1 pb-2.5">
+                          {photos.map((p, i) => {
+                            const url = resolvePhotoUrl(p);
+                            return (
+                              <a
+                                key={`${p}-${i}`}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-muted relative h-16 w-20 shrink-0 overflow-hidden rounded-md border"
+                                aria-label={`${props.name} photo ${i + 1}`}
+                              >
+                                <Image
+                                  src={url}
+                                  alt={`${props.name} ${i + 1}`}
+                                  fill
+                                  sizes="80px"
+                                  className="object-cover"
+                                />
+                              </a>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
                   </li>
                 );
               })}
