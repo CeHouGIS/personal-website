@@ -1,6 +1,7 @@
 "use client";
 
 import maplibregl from "maplibre-gl";
+import Image from "next/image";
 import { Protocol } from "pmtiles";
 import {
   forwardRef,
@@ -20,8 +21,33 @@ interface TripProperties {
   date?: string;
   description?: string;
   emoji?: string;
-  photo?: string;
+  photos?: string[];
   kind?: "place" | "trajectory";
+}
+
+const R2_BASE = process.env.NEXT_PUBLIC_R2_PUBLIC_BASE ?? "";
+
+function resolvePhotoUrl(src: string): string {
+  if (/^https?:\/\//i.test(src)) return src;
+  if (!R2_BASE) return src;
+  return `${R2_BASE.replace(/\/$/, "")}/${src.replace(/^\//, "")}`;
+}
+
+// MapLibre serializes non-primitive property values to JSON strings when
+// surfacing them through layer click events, so accept either form.
+function parsePhotos(raw: unknown): string[] {
+  if (Array.isArray(raw))
+    return raw.filter((s): s is string => typeof s === "string");
+  if (typeof raw === "string") {
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed))
+        return parsed.filter((s): s is string => typeof s === "string");
+    } catch {
+      return [raw];
+    }
+  }
+  return [];
 }
 
 export interface TravelMapHandle {
@@ -238,7 +264,11 @@ export const TravelMap = forwardRef<TravelMapHandle, TravelMapProps>(
         map.on("click", "trip-points", (e) => {
           const feature = e.features?.[0];
           if (!feature) return;
-          setSelected(feature.properties as TripProperties);
+          const props = (feature.properties ?? {}) as Record<string, unknown>;
+          setSelected({
+            ...(props as TripProperties),
+            photos: parsePhotos(props.photos),
+          });
           map.easeTo({
             center: e.lngLat,
             zoom: Math.max(map.getZoom(), 5),
@@ -311,12 +341,32 @@ export const TravelMap = forwardRef<TravelMapHandle, TravelMapProps>(
                 {selected.date}
               </p>
             )}
-            {selected.photo && (
-              <img
-                src={selected.photo}
-                alt={selected.name}
-                className="mt-2 h-36 w-full rounded-lg object-cover"
-              />
+            {selected.photos && selected.photos.length > 0 && (
+              <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+                {selected.photos.map((p, i) => {
+                  const url = resolvePhotoUrl(p);
+                  return (
+                    <a
+                      key={`${p}-${i}`}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${selected.name} photo ${i + 1}`}
+                      className="bg-background relative block h-20 w-24 shrink-0 overflow-hidden rounded-lg border border-border/60 p-1 shadow-sm transition-shadow hover:shadow-md"
+                    >
+                      <span className="bg-muted relative block h-full w-full overflow-hidden rounded-md">
+                        <Image
+                          src={url}
+                          alt={`${selected.name} ${i + 1}`}
+                          fill
+                          sizes="96px"
+                          className="object-cover"
+                        />
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
             )}
             {selected.description && (
               <p className="mt-2 text-sm leading-relaxed">
