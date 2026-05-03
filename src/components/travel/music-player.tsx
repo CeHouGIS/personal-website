@@ -35,16 +35,26 @@ export function MusicPlayer() {
     audio.addEventListener("error", onError);
     audio.addEventListener("ended", onEnd);
 
-    // Universal autoplay strategy:
-    //   1. Start muted — bypasses Chrome/Safari/Firefox autoplay restrictions
-    //   2. Auto-unmute on the first user interaction anywhere on the page
-    // This guarantees identical behavior across locales and engagement state.
-    audio.muted = true;
-    setMuted(true);
+    // Try to autoplay at normal volume. Browsers may block this when the user
+    // has no prior engagement with the domain; if so, fall back to playing
+    // muted (which browsers always allow) and unmute on first interaction.
+    audio.muted = false;
+    setMuted(false);
+
+    const startMutedFallback = () => {
+      const a = audioRef.current;
+      if (!a) return;
+      a.muted = true;
+      setMuted(true);
+      a.play()
+        .then(() => setPlaying(true))
+        .catch(() => setPlaying(false));
+    };
+
     audio
       .play()
       .then(() => setPlaying(true))
-      .catch(() => setPlaying(false));
+      .catch(() => startMutedFallback());
 
     const unmuteOnInteraction = () => {
       const a = audioRef.current;
