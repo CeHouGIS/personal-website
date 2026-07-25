@@ -2,6 +2,11 @@
   "news": {
     "items": [
       {
+        "date": "2026.07",
+        "title": "荣获 Geoinformatics 2026 最佳学生论文奖",
+        "content": "🏆 在第33届地理信息科学国际会议（33rd International Conference on Geoinformatics 2026）上荣获最佳学生论文奖。"
+      },
+      {
         "date": "2026.03",
         "title": "在Transactions in Urban Data, Science, and Technology上发表新论文",
         "content": "📘 以第一作者身份在Transactions in Urban Data, Science, and Technology期刊上发表了一篇论文。"
@@ -151,6 +156,10 @@
   },
 "awards": {
     "items": [
+      {
+        "year": 2026,
+        "title": "第33届地理信息科学国际会议（Geoinformatics 2026）最佳学生论文奖"
+      },
       {
         "year": 2025,
         "title": "香港科技大学海外研究奖"

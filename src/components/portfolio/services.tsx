@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
 import { ResumeCard } from "@/components/portfolio/resume-card";
+import { Badge } from "@/components/ui/badge";
 
 interface AssociationProps {
   company: string;    // 协会名称

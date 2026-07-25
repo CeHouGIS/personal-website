@@ -2,6 +2,11 @@
   "news": {
     "items": [
       {
+        "date": "2026.07",
+        "title": "Received Best Student Paper Award at Geoinformatics 2026",
+        "content": "🏆 Honored to receive the Best Student Paper Award at the 33rd International Conference on Geoinformatics 2026."
+      },
+      {
         "date": "2026.03",
         "title": "A new paper published in Transactions in Urban Data, Science, and Technology",
         "content": "📘 Got one paper as first-author published in Transactions in Urban Data, Science, and Technology."
@@ -276,6 +281,10 @@
   },
   "awards": {
     "items": [
+      {
+        "year": 2026,
+        "title": "Best Student Paper Award, 33rd International Conference on Geoinformatics 2026"
+      },
       {
         "year": 2025,
         "title": "Overseas Research Award, HKUST"
