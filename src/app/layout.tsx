@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function RootLayout({

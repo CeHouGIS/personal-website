@@ -1,5 +1,7 @@
 "use client";
 
+import "maplibre-gl/dist/maplibre-gl.css";
+
 import maplibregl from "maplibre-gl";
 import Image from "next/image";
 import { Protocol } from "pmtiles";
@@ -10,8 +12,6 @@ import {
   useRef,
   useState,
 } from "react";
-
-import "maplibre-gl/dist/maplibre-gl.css";
 
 import { FALLBACK_COLOR, YEAR_COLORS } from "./year-colors";
 
@@ -265,8 +265,10 @@ export const TravelMap = forwardRef<TravelMapHandle, TravelMapProps>(
           const feature = e.features?.[0];
           if (!feature) return;
           const props = (feature.properties ?? {}) as Record<string, unknown>;
+          if (typeof props.name !== "string") return;
           setSelected({
-            ...(props as TripProperties),
+            ...props,
+            name: props.name,
             photos: parsePhotos(props.photos),
           });
           map.easeTo({
